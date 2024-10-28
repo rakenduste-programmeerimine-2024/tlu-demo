@@ -7,7 +7,11 @@ Kujundus on kramplik, bännerid ja päised kasutavad ruumi ebaefektiivselt ja mi
 
 Autorid:
 Jarl Hegert Koha
+<<<<<<< HEAD
 Egle Vestrik
+=======
+Henri Rihard Pallas
+>>>>>>> 150350d56d46b5a78764f2a73767647c2020a1ea
 
 
 
