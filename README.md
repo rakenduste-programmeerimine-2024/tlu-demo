@@ -7,6 +7,7 @@ Kujundus on kramplik, bännerid ja päised kasutavad ruumi ebaefektiivselt ja mi
 
 Autorid:
 Jarl Hegert Koha
+Egle Vestrik
 
 
 
