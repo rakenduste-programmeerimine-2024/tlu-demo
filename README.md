@@ -30,3 +30,5 @@ Rain Erik Elias
 <ul>Veebilehe külastajana soovin külastada ülikooli virtuaaltuuri, et tutvuda ülikooli hoonega.</ul>
 <ul>Veebilehe külastajana soovin näha ülikooli ürituste kalendrit, et saada rohkem teada ülikooliga seotud ürituste kohta.</ul>
 <ul>Veebilehe külastajana soovin valida küpsiseid, millega nõustun ning neid tagantjärgi muuta, et hallata, milliseid andmeid minult võib koguda.</ul>
+
+Figma wireframe: https://www.figma.com/design/MKwTjTxQS5ybQ4e7rYtq2B/Esilehe-naide?node-id=601-9&t=tQM6ykIqVvDhxczc-1
