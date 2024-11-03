@@ -2,11 +2,14 @@ import Hero from "@/components/hero";
 import ConnectSupabaseSteps from "@/components/tutorial/connect-supabase-steps";
 import SignUpUserSteps from "@/components/tutorial/sign-up-user-steps";
 import { hasEnvVars } from "@/utils/supabase/check-env-vars";
-import { createClient } from '@/utils/supabase/server';  // Ensure this path is correct
+import { createClient } from "@/utils/supabase/server";
 
 export default async function Index() {
+  // Get the Supabase client dynamically
+  const supabase = await createClient();
+
   // Fetch users from the 'users' table
-  const { data: users, error } = await createClient.from("users").select("name");
+  const { data: users, error } = await supabase.from("users").select("name");
 
   // Error handling
   if (error) {
@@ -19,7 +22,6 @@ export default async function Index() {
       <Hero />
       <main className="flex-1 flex flex-col gap-6 px-4">
         <h2 className="font-medium text-xl mb-4">Users</h2>
-        {hasEnvVars ? <SignUpUserSteps /> : <ConnectSupabaseSteps />}
         
         {/* Display User Names */}
         <ul>
@@ -31,4 +33,5 @@ export default async function Index() {
     </>
   );
 }
+
 
