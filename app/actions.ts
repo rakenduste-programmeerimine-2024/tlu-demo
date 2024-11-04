@@ -12,7 +12,7 @@ export const signUpAction = async (formData: FormData) => {
   const origin = (await headers()).get("origin");
 
   if (!email || !password) {
-    return { error: "Email and password are required" };
+    return { error: "E-mail ja parool on nõutud" };
   }
 
   const { error } = await supabase.auth.signUp({
@@ -30,7 +30,7 @@ export const signUpAction = async (formData: FormData) => {
     return encodedRedirect(
       "success",
       "/sign-up",
-      "Thanks for signing up! Please check your email for a verification link.",
+      "Konto loomine õnnestus. Kinnitus link saadetakse Sinu e-mailile.",
     );
   }
 };
@@ -59,7 +59,7 @@ export const forgotPasswordAction = async (formData: FormData) => {
   const callbackUrl = formData.get("callbackUrl")?.toString();
 
   if (!email) {
-    return encodedRedirect("error", "/forgot-password", "Email is required");
+    return encodedRedirect("error", "/forgot-password", "E-mail on nõutud");
   }
 
   const { error } = await supabase.auth.resetPasswordForEmail(email, {
@@ -71,7 +71,7 @@ export const forgotPasswordAction = async (formData: FormData) => {
     return encodedRedirect(
       "error",
       "/forgot-password",
-      "Could not reset password",
+      "Parooli ei saanud taastada",
     );
   }
 
@@ -82,7 +82,7 @@ export const forgotPasswordAction = async (formData: FormData) => {
   return encodedRedirect(
     "success",
     "/forgot-password",
-    "Check your email for a link to reset your password.",
+    "Parooli taastamise link saadetakse Sinu e-mailile.",
   );
 };
 
@@ -96,7 +96,7 @@ export const resetPasswordAction = async (formData: FormData) => {
     encodedRedirect(
       "error",
       "/protected/reset-password",
-      "Password and confirm password are required",
+      "Parool ja parooli kinnitus on nõutud",
     );
   }
 
@@ -104,7 +104,7 @@ export const resetPasswordAction = async (formData: FormData) => {
     encodedRedirect(
       "error",
       "/protected/reset-password",
-      "Passwords do not match",
+      "Paroolid ei klapi",
     );
   }
 
@@ -116,11 +116,11 @@ export const resetPasswordAction = async (formData: FormData) => {
     encodedRedirect(
       "error",
       "/protected/reset-password",
-      "Password update failed",
+      "Parooli uuendamine ebaõnnestus",
     );
   }
 
-  encodedRedirect("success", "/protected/reset-password", "Password updated");
+  encodedRedirect("success", "/protected/reset-password", "Parool uuendatud");
 };
 
 export const signOutAction = async () => {
