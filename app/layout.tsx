@@ -1,12 +1,13 @@
-import { GeistSans } from "geist/font/sans";
-import { ThemeProvider } from "next-themes";
-import "./globals.css";
-import { ThemeSwitcher } from "@/components/theme-switcher";
+import { GeistSans } from "geist/font/sans"
+import { ThemeProvider } from "next-themes"
+import "./globals.css"
+import { ThemeSwitcher } from "@/components/theme-switcher"
 import FrontHeader from "@/components/front-header"
+import Sidebar from "@/components/sidebar"
 
 const defaultUrl = process.env.VERCEL_URL
   ? `https://${process.env.VERCEL_URL}`
-  : "http://localhost:3000";
+  : "http://localhost:3000"
 
 export const metadata = {
   metadataBase: new URL(defaultUrl),
@@ -17,7 +18,7 @@ export const metadata = {
 export default function RootLayout({
   children,
 }: {
-  children: React.ReactNode;
+  children: React.ReactNode
 }) {
   return (
     <html
@@ -32,7 +33,14 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          <FrontHeader />
+          <div className="flex">
+            <div className="flex">
+              <Sidebar />
+            </div>
+            <div className="w-full flex items-center justify-center">
+              <FrontHeader />
+            </div>
+          </div>
           <main className="min-h-screen flex flex-col items-center">
             <div className="flex-1 w-full flex flex-col gap-20 items-center">
               <nav className="w-full flex justify-center h-16"></nav>
