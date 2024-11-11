@@ -19,7 +19,7 @@ const Sidebar: React.FC = () => {
       <div
         className={`bg-tlured text-white 
                     fixed h-screen transition-all 
-                    duration-300 z-10 
+                    duration-100 z-10
                     ${isOpen ? "w-64" : "w-0 overflow-hidden"}`}
       >
         <div className="flex flex-col items-center">

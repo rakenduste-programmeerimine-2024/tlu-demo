@@ -1,4 +1,5 @@
 import Image from "next/image"
+import Socialmedia from "./socialmedia-buttons";
 
 export function MainLogo() {
     return (
@@ -17,6 +18,7 @@ export function MainLogo() {
           height="60"
           className="hidden dark:block"
         />
+        <Socialmedia />
       </div>
     )
     

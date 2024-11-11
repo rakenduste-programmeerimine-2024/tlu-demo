@@ -34,9 +34,7 @@ export default function RootLayout({
           disableTransitionOnChange
         >
           <div className="flex">
-            <div className="flex">
               <Sidebar />
-            </div>
             <div className="w-full flex items-center justify-center">
               <FrontHeader />
             </div>
