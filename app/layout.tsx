@@ -33,22 +33,20 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          <div className="flex">
+          <div className="items-center">
+            <div className="absolute z-10">
               <Sidebar />
-            <div className="w-full flex items-center justify-center">
+            </div>
+            <div className="flex ml-10">
               <FrontHeader />
             </div>
           </div>
-          <main className="min-h-screen flex flex-col items-center">
+          <main className="flex flex-col items-center">
             <div className="flex-1 w-full flex flex-col gap-20 items-center">
               <nav className="w-full flex justify-center h-16"></nav>
               <div className="flex flex-col gap-20 max-w-5xl p-5">
                 {children}
               </div>
-
-              <footer className="w-full flex items-center justify-center mx-auto text-center text-xs gap-8 py-16">
-                <ThemeSwitcher />
-              </footer>
             </div>
           </main>
         </ThemeProvider>
