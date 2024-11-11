@@ -1,10 +1,5 @@
 import { useState, useEffect } from 'react'
 
-type Results = {
-    id: number
-    title: string
-  }
-
 // Source for code: https://hackernoon.com/how-to-use-debounce-in-nextjs
 
 export default function useDebounce(value: string, delay: number) {

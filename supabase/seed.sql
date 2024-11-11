@@ -4,4 +4,5 @@ public.users (name)
 values
 ('Joonas Tamm'),
 ('Rudolf Põder'),
-('Mihkel Välgu');
+('Mihkel Välgu'),
+('Inimene Eitea');
