@@ -8,7 +8,7 @@ import { AiOutlineSearch } from "react-icons/ai"
 
 type Results = {
   id: number
-  name: string
+  title: string
 }
 
 export default function SearchBar() {
@@ -55,7 +55,7 @@ export default function SearchBar() {
 
   return (
     <>
-      <form className="w-[500px], relative">
+      <form className="w-[500px] relative">
         <div className="relative">
           <input
             type="search"
@@ -71,7 +71,7 @@ export default function SearchBar() {
         {searchResults.length > 0 && (
           <div className="absolute top-16 p-4 bg-slate-100 dark:bg-slate-800 w-full rounded-xl left-1/2 -translate-x-1/2 flex flex-col gap-2, shadow-md">
             {searchResults.map(result => (
-              <span key={result.id}>{result.name}</span>
+              <span key={result.id}>{result.title}</span>
             ))}
           </div>
         )}

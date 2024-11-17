@@ -1,8 +1,9 @@
 import { NextResponse } from "next/server";
 import { createClient } from "@/utils/supabase/server";
 
-const table: string = "users";
-const column: string = "name";
+const table: string = "pages";
+const column: string = "id, title";
+const like_column: string = "title";
 
 export async function POST(request: Request){
     const supabase = await createClient();
@@ -12,9 +13,9 @@ export async function POST(request: Request){
         console.log(searchString)
 
         const { data, error } = await supabase
-            .from('users')
-            .select('id, name')
-            .ilike('name',`%${searchString}%`)
+            .from(table)
+            .select(column)
+            .ilike(like_column,`%${searchString}%`)
         
         if (error) {
             throw new Error(error.message)
@@ -26,7 +27,7 @@ export async function POST(request: Request){
     } catch (error) {
         console.error('Supabase Error:', error)
         return NextResponse.json(
-            { success: false, error: 'Failed to fetch titles' },
+            { success: false, error: 'Failed to fetch pages' },
             { status: 500 }
         )
     }
