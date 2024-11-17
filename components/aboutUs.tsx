@@ -11,7 +11,7 @@ const App: React.FC = () => {
     width: "640",
     playerVars: {
       autoplay: 1,
-      start: 2, // Start at 2 seconds
+      start: 0, // Start at 2 seconds
     },
   };
 
@@ -29,8 +29,7 @@ const App: React.FC = () => {
         height: "100vh",
         backgroundColor: "#1a202c",
         color: "white",
-      }}
-    >
+      }}>
       <div
         style={{
           padding: "20px",

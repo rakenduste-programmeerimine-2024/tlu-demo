@@ -10,7 +10,7 @@ export default function Socialmedia() {
           href="https://www.facebook.com/tallinna.ylikool/"
           target="_blank"
         >
-          <Button className="flex items-center gap-2" size={"sm"}>
+          <Button className="flex items-center gap-2 bg-white dark:bg-tlured" size={"sm"}>
             <Image 
               src="/soc-logos/facebook-16.png"
               alt="Facebook logo"
@@ -23,7 +23,7 @@ export default function Socialmedia() {
           href="https://www.instagram.com/tallinnuniversity/"
           target="_blank"
         >
-          <Button className="flex items-center gap-2" size={"sm"}>
+          <Button className="flex items-center gap-2 bg-white dark:bg-tlured" size={"sm"}>
             <Image 
               src="/soc-logos/instagram-6-16.png"
               alt="Instagram logo"
@@ -36,7 +36,7 @@ export default function Socialmedia() {
           href="https://www.youtube.com/user/TallinnaYlikool"
           target="_blank"
         >
-          <Button className="flex items-center gap-2" size={"sm"}>
+          <Button className="flex items-center gap-2 bg-white dark:bg-tlured" size={"sm"}>
             <Image 
               src="/soc-logos/youtube-16.png"
               alt="youtube logo"
@@ -49,7 +49,7 @@ export default function Socialmedia() {
           href="https://www.flickr.com/photos/tallinnuniversity/albums"
           target="_blank"
         >
-          <Button className="flex items-center gap-2" size={"sm"}>
+          <Button className="flex items-center gap-2 bg-white dark:bg-tlured" size={"sm"}>
             <Image 
               src="/soc-logos/flickr-16.png"
               alt="flickr logo"
@@ -62,7 +62,7 @@ export default function Socialmedia() {
           href="http://virtuaaltuur.tlu.ee"
           target="_blank"
         >
-          <Button className="flex items-center gap-2" size={"sm"}>
+          <Button className="flex items-center gap-2 bg-white dark:bg-tlured" size={"sm"}>
             <Image 
               src="/soc-logos/instagram-16.png"
               alt="virtuaaltuur logo"
@@ -75,7 +75,7 @@ export default function Socialmedia() {
           href="https://www.tiktok.com/@tallinnuniversity"
           target="_blank"
         >
-          <Button className="flex items-center gap-2" size={"sm"}>
+          <Button className="flex items-center gap-2 bg-white dark:bg-tlured" size={"sm"}>
             <Image 
               src="/soc-logos/tiktok-16.png"
               alt="tiktok logo"
