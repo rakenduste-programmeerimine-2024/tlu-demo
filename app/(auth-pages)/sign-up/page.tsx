@@ -6,6 +6,7 @@ import { SubmitButton } from "@/components/submit-button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import Link from "next/link";
+import Image from "next/image"; // Import Image component from next/image
 
 export default function Signup(props: { searchParams: Promise<Message> }) {
   const [email, setEmail] = useState("");
@@ -32,17 +33,9 @@ export default function Signup(props: { searchParams: Promise<Message> }) {
     if (!/[~`!@#$%^&*()_\-+{}[\]|:;<>,.?/]/.test(password)) requirements.push("üht sümbolit");
     if (password.length < 8) requirements.push("kaheksat märki");
 
-    setMissingRequirements(requirements);
+    return requirements;
   };
 
-  // Parooli state'i uuendamine ja tingimuste kontroll parooli muutudes
-  const handlePasswordChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    const value = event.target.value;
-    setPassword(value);
-    checkPasswordRequirements(value);
-  };
-
-  // Handle form submission
   const handleSubmit = (event: React.FormEvent) => {
     event.preventDefault();
     let hasErrors = false;
@@ -64,10 +57,14 @@ export default function Signup(props: { searchParams: Promise<Message> }) {
       hasErrors = true;
     }
 
-    // Parooli valideerimine
-    if (missingRequirements.length > 0) {
+    // Parooli valideerimine ainult saatmisel
+    const requirements = checkPasswordRequirements(password);
+    if (requirements.length > 0) {
       newErrors.password = "Parool ei vasta nõuetele";
+      setMissingRequirements(requirements);
       hasErrors = true;
+    } else {
+      setMissingRequirements([]);
     }
 
     setErrors(newErrors);
@@ -78,17 +75,9 @@ export default function Signup(props: { searchParams: Promise<Message> }) {
     }
   };
 
-  if (searchParams && "message" in searchParams) {
-    return (
-      <div className="w-full flex-1 flex items-center h-screen sm:max-w-md justify-center gap-2 p-4">
-        <FormMessage message={searchParams} />
-      </div>
-    );
-  }
-
   return (
     <>
-      <form className="flex flex-col min-w-100 max-w-100 mx-auto" onSubmit={handleSubmit}>
+      <form className="flex-1 flex flex-col min-w-64" onSubmit={handleSubmit}>
         <h1 className="text-2xl font-medium">Loo kasutaja</h1>
         <p className="text-sm text text-foreground">
           Kas sul on juba kasutaja?{" "}
@@ -96,54 +85,89 @@ export default function Signup(props: { searchParams: Promise<Message> }) {
             Logi sisse
           </Link>
         </p>
-        <div className="flex flex-col gap-2 [&>input]:mb-3 mt-8">
-          <Label htmlFor="email">E-mail</Label>
-          <Input
-            className={`w-4/5 ${errors.email ? "border border-red-500" : ""}`}
-            name="email"
-            placeholder="mari@maasikas.com"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-          />
-          {errors.email && <p className="text-red-500 text-sm mt-1">{errors.email}</p>}
-
-          <Label htmlFor="name">Sinu nimi</Label>
-          <Input
-            className={`w-4/5 ${errors.name ? "border border-red-500" : ""}`}
-            name="name"
-            placeholder="Mari Maasikas"
-            value={name}
-            onChange={(e) => setName(e.target.value)}
-          />
-          {errors.name && <p className="text-red-500 text-sm mt-1">{errors.name}</p>}
-
-          <Label htmlFor="password">Parool</Label>
-          <div className="flex flex-col gap-2">
+        <div className="flex flex-col gap-4 mt-8">
+          <div className="flex flex-col w-full">
+            <Label htmlFor="email">E-mail</Label>
             <Input
-              className={`w-4/5 ${errors.password ? "border border-red-500" : ""}`}
-              type="password"
-              name="password"
-              placeholder="Sinu parool"
-              minLength={8}
-              value={password}
-              onChange={handlePasswordChange}
+              className={`flex items-center w-[90%] ${errors.email ? "border border-red-500" : ""}`}
+              name="email"
+              placeholder="mari@maasikas.com"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
             />
-            {missingRequirements.length > 0 && (
-              <ul className="text-red-500 text-sm mt-1">
-                {missingRequirements.map((req, index) => (
-                  <li key={index}>Peab sisaldama vähemalt {req}.</li>
-                ))}
-              </ul>
+            {errors.email && <p className="text-red-500 text-sm mt-1">{errors.email}</p>}
+          </div>
+
+          <div className="flex flex-col w-full">
+            <Label htmlFor="name">Sinu nimi</Label>
+            <Input
+              className={`flex items-center w-[90%] ${errors.name ? "border border-red-500" : ""}`}
+              name="name"
+              placeholder="Mari Maasikas"
+              value={name}
+              onChange={(e) => setName(e.target.value)}
+            />
+            {errors.name && <p className="text-red-500 text-sm mt-1">{errors.name}</p>}
+          </div>
+
+          <div className="flex flex-col w-full">
+            <Label htmlFor="password">Parool</Label>
+            <div className="flex justify-between items-center">
+              <Input
+                className={`flex justify-between items-center ${errors.password ? "border border-red-500" : ""}`}
+                type="password"
+                name="password"
+                placeholder="Sinu parool"
+                minLength={8}
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+              />
+              <div className="tooltip relative inline-block ml-2">
+                <Image
+                  src="/info-icon.png" // Image path directly from public folder
+                  alt="Password Info"
+                  width={20}
+                  height={20}
+                  className="cursor-pointer"
+                />
+                <span className="tooltip-text absolute bg-gray-700 text-white p-2 rounded text-xs mt-1 hidden">
+                  Parool peab sisaldama vähemalt üht suurtähte, üht väiketähte, üht numbrit, üht sümbolit ja olema vähemalt 8 tähemärki.
+                </span>
+              </div>
+            </div>
+            {errors.password && (
+              <>
+                <p className="text-red-500 text-sm mt-1">{errors.password}</p>
+                <ul className="text-red-500 text-sm mt-1">
+                  {missingRequirements.map((req, index) => (
+                    <li key={index}>Peab sisaldama vähemalt {req}.</li>
+                  ))}
+                </ul>
+              </>
             )}
           </div>
-          {errors.password && <p className="text-red-500 text-sm mt-1">{errors.password}</p>}
 
-          <SubmitButton className="w-4/5" formAction={signUpAction} pendingText="Signing up...">
+          <SubmitButton className="flex items-center w-[90%]" formAction={signUpAction} pendingText="Signing up...">
             Loo kasutaja
           </SubmitButton>
           {searchParams && <FormMessage message={searchParams} />}
         </div>
       </form>
+      <style jsx>{`
+        .tooltip {
+          margin-left: 8px; /* Add space between image and input field */
+        }
+        .tooltip:hover .tooltip-text {
+          display: block;
+          width: 200px; 
+          padding: 8px 12px;
+          white-space: normal;
+        }
+        .tooltip-text {
+          text-align: left;
+          line-height: 1.4; 
+        }
+      `}</style>
     </>
   );
 }
