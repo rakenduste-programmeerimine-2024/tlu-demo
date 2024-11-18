@@ -52,7 +52,10 @@ const config = {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
         },
-        tlured: "#b71234",
+        tlured: "#d0043c",
+        logored: "#b20e10",
+        black: "#000000",
+        white: "#ffffff",
       },
       borderRadius: {
         lg: "var(--radius)",
