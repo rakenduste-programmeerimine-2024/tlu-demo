@@ -1,6 +1,5 @@
 import Image from "next/image"
 import Socialmedia from "./socialmedia-buttons"
-import { ThemeSwitcher } from "./theme-switcher"
 
 export function MainLogo() {
     return (
@@ -31,9 +30,6 @@ export default function FrontHeader() {
     <>
       <div className="w-full flex flex-col items-center justify-center">
         <MainLogo />
-      </div>
-      <div className="items-end">
-        <ThemeSwitcher />
       </div>
     </>
   )

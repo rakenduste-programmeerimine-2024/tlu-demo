@@ -17,7 +17,7 @@ const Sidebar: React.FC = () => {
   return (
     <div className="flex">
       <div
-        className={`bg-tlured text-white 
+        className={`bg-gradient-to-b from-logored to-tlured text-white 
                     fixed h-screen transition-all 
                     duration-100 z-10
                     ${isOpen ? "w-64" : "w-0 overflow-hidden"}`}
@@ -49,7 +49,7 @@ const Sidebar: React.FC = () => {
       >
         <div className="ml-auto">
           <button
-            className="bg-black hover:bg-tlured dark:bg-tlured
+            className="bg-black hover:bg-logored dark:bg-logored dark:hover:bg-tlured
                        text-white font-bold py-2 px-4 rounded"
             onClick={() => setIsOpen(!isOpen)}
           >
@@ -88,7 +88,7 @@ const Sidebar: React.FC = () => {
         </div>
       </div>
     </div>
-  );
+  )
 }
 
 export default Sidebar

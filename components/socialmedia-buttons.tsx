@@ -5,7 +5,7 @@ import Image from 'next/image';
 export default function Socialmedia() {
   return (
     <>
-      <div className="flex flex-row gap-1 justify-center">
+      <div className="flex flex-row gap-1 justify-center border rounded border-solid dark:border-0">
         <Link
           href="https://www.facebook.com/tallinna.ylikool/"
           target="_blank"
