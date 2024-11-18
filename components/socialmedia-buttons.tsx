@@ -5,7 +5,7 @@ import Image from 'next/image';
 export default function Socialmedia() {
   return (
     <>
-      <div className="flex flex-row gap-1">
+      <div className="flex flex-row gap-1 justify-center">
         <Link
           href="https://www.facebook.com/tallinna.ylikool/"
           target="_blank"
@@ -25,7 +25,7 @@ export default function Socialmedia() {
         >
           <Button className="flex items-center gap-2 bg-white " size={"sm"}>
             <Image 
-              src="/soc-logos/instagram-6-16.png"
+              src="/soc-logos/instagram-16.png"
               alt="Instagram logo"
               width={10}
               height={10}

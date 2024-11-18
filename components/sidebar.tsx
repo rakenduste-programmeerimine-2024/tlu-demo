@@ -32,13 +32,13 @@ const Sidebar: React.FC = () => {
             </button>
           </div>
           <div className="mt-4">
-            <a
-              href="#"
+            <button
+              onClick={() => router.push("/aboutUs")}
               className="text-white 
                           hover:text-gray-300"
             >
               About
-            </a>
+            </button>
           </div>
         </div>
       </div>
@@ -88,7 +88,7 @@ const Sidebar: React.FC = () => {
         </div>
       </div>
     </div>
-  )
+  );
 }
 
 export default Sidebar

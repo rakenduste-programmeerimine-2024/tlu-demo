@@ -1,7 +1,6 @@
 import { GeistSans } from "geist/font/sans"
 import { ThemeProvider } from "next-themes"
 import "./globals.css"
-import { ThemeSwitcher } from "@/components/theme-switcher"
 import FrontHeader from "@/components/front-header"
 import Sidebar from "@/components/sidebar"
 
