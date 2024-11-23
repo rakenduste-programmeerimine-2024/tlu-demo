@@ -10,13 +10,13 @@ const App: React.FC = () => {
     height: "390",
     width: "640",
     playerVars: {
-      autoplay: 1,
-      start: 0, // Start at 2 seconds
+      autoplay: 0, // no autoplay
+      start: 0, // Start at 0 seconds
     },
   };
 
   const onPlayerReady = (event: any) => {
-    event.target.playVideo();
+    console.log("Video is ready");
   };
 
   return (
