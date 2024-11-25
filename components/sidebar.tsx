@@ -17,9 +17,9 @@ const Sidebar: React.FC = () => {
   return (
     <div className="flex">
       <div
-        className={`bg-tlured text-white 
+        className={`bg-gradient-to-b from-logored to-tlured text-white 
                     fixed h-screen transition-all 
-                    duration-300 z-10 
+                    duration-100 z-10
                     ${isOpen ? "w-64" : "w-0 overflow-hidden"}`}
       >
         <div className="flex flex-col items-center">
@@ -32,13 +32,13 @@ const Sidebar: React.FC = () => {
             </button>
           </div>
           <div className="mt-4">
-            <a
-              href="#"
+            <button
+              onClick={() => router.push("/aboutUs")}
               className="text-white 
                           hover:text-gray-300"
             >
               About
-            </a>
+            </button>
           </div>
         </div>
       </div>
@@ -49,7 +49,7 @@ const Sidebar: React.FC = () => {
       >
         <div className="ml-auto">
           <button
-            className="bg-black hover:bg-tlured dark:bg-tlured
+            className="bg-black hover:bg-logored dark:bg-logored dark:hover:bg-tlured
                        text-white font-bold py-2 px-4 rounded"
             onClick={() => setIsOpen(!isOpen)}
           >

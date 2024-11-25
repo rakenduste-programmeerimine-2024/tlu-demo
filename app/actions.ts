@@ -8,14 +8,17 @@ import { redirect } from "next/navigation";
 export const signUpAction = async (formData: FormData) => {
   const email = formData.get("email")?.toString();
   const password = formData.get("password")?.toString();
+  const name = formData.get("name")?.toString();
   const supabase = await createClient();
-  const origin = (await headers()).get("origin");
+  //const origin = (await headers()).get("origin");
 
-  if (!email || !password) {
-    return { error: "Email and password are required" };
+  const origin = process.env.APP_ORIGIN || "http://localhost:3000";
+
+  if (!email || !password || !name) {
+    return { error: "E-mail ja parool on nõutud" };
   }
 
-  const { error } = await supabase.auth.signUp({
+  const { data: user, error: signUpError } = await supabase.auth.signUp({
     email,
     password,
     options: {
@@ -23,16 +26,33 @@ export const signUpAction = async (formData: FormData) => {
     },
   });
 
-  if (error) {
-    console.error(error.code + " " + error.message);
-    return encodedRedirect("error", "/sign-up", error.message);
-  } else {
-    return encodedRedirect(
-      "success",
-      "/sign-up",
-      "Thanks for signing up! Please check your email for a verification link.",
-    );
+  if (signUpError) {
+    console.error(signUpError.code + " " + signUpError.message);
+    return encodedRedirect("error", "/sign-up", signUpError.message);
   }
+
+  const { error: insertError } = await supabase
+    .from("users")
+    .insert([
+      {
+        id: user.user?.id, // Supabase user ID as the primary key
+        name,
+        email,
+      },
+    ]);
+
+  if (insertError) {
+    console.error(insertError.message);
+    return encodedRedirect("error", "/sign-up", "Konto loomine ebaõnnestus");
+  }
+
+  return encodedRedirect(
+    "success",
+    "/sign-up",
+    "Konto loomine õnnestus. Kinnitus link saadetakse Sinu e-mailile."
+  );
+
+
 };
 
 export const signInAction = async (formData: FormData) => {
@@ -59,7 +79,7 @@ export const forgotPasswordAction = async (formData: FormData) => {
   const callbackUrl = formData.get("callbackUrl")?.toString();
 
   if (!email) {
-    return encodedRedirect("error", "/forgot-password", "Email is required");
+    return encodedRedirect("error", "/forgot-password", "E-mail on nõutud");
   }
 
   const { error } = await supabase.auth.resetPasswordForEmail(email, {
@@ -71,7 +91,7 @@ export const forgotPasswordAction = async (formData: FormData) => {
     return encodedRedirect(
       "error",
       "/forgot-password",
-      "Could not reset password",
+      "Parooli ei saanud taastada",
     );
   }
 
@@ -82,7 +102,7 @@ export const forgotPasswordAction = async (formData: FormData) => {
   return encodedRedirect(
     "success",
     "/forgot-password",
-    "Check your email for a link to reset your password.",
+    "Parooli taastamise link saadetakse Sinu e-mailile.",
   );
 };
 
@@ -96,7 +116,7 @@ export const resetPasswordAction = async (formData: FormData) => {
     encodedRedirect(
       "error",
       "/protected/reset-password",
-      "Password and confirm password are required",
+      "Parool ja parooli kinnitus on nõutud",
     );
   }
 
@@ -104,7 +124,7 @@ export const resetPasswordAction = async (formData: FormData) => {
     encodedRedirect(
       "error",
       "/protected/reset-password",
-      "Passwords do not match",
+      "Paroolid ei klapi",
     );
   }
 
@@ -116,11 +136,11 @@ export const resetPasswordAction = async (formData: FormData) => {
     encodedRedirect(
       "error",
       "/protected/reset-password",
-      "Password update failed",
+      "Parooli uuendamine ebaõnnestus",
     );
   }
 
-  encodedRedirect("success", "/protected/reset-password", "Password updated");
+  encodedRedirect("success", "/protected/reset-password", "Parool uuendatud");
 };
 
 export const signOutAction = async () => {

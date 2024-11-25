@@ -1,9 +1,8 @@
 
-create table
-users (
-id bigint primary key generated always as identity,
-name text,
-email text,
-password text,
-created_at timestamptz default now()
+create table public.users (
+  id uuid primary key references auth.users(id) on delete cascade,
+  name text not null,
+  email text not null,
+  created_at timestamp with time zone default now(),
+  deleted boolean
 );

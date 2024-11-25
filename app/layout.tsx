@@ -1,9 +1,9 @@
 import { GeistSans } from "geist/font/sans"
 import { ThemeProvider } from "next-themes"
 import "./globals.css"
-import { ThemeSwitcher } from "@/components/theme-switcher"
 import FrontHeader from "@/components/front-header"
 import Sidebar from "@/components/sidebar"
+import { ThemeSwitcher } from "@/components/theme-switcher"
 
 const defaultUrl = process.env.VERCEL_URL
   ? `https://${process.env.VERCEL_URL}`
@@ -33,24 +33,23 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          <div className="flex">
-            <div className="flex">
+          <div>
+            <div className="absolute z-10">
               <Sidebar />
             </div>
-            <div className="w-full flex items-center justify-center">
+            <div>
               <FrontHeader />
             </div>
+            <div className="absolute right-0 top-0">
+              <ThemeSwitcher />
+            </div>
           </div>
-          <main className="min-h-screen flex flex-col items-center">
+          <main className="flex flex-col items-center">
             <div className="flex-1 w-full flex flex-col gap-20 items-center">
               <nav className="w-full flex justify-center h-16"></nav>
               <div className="flex flex-col gap-20 max-w-5xl p-5">
                 {children}
               </div>
-
-              <footer className="w-full flex items-center justify-center mx-auto text-center text-xs gap-8 py-16">
-                <ThemeSwitcher />
-              </footer>
             </div>
           </main>
         </ThemeProvider>

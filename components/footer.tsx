@@ -7,77 +7,103 @@ export default function Socialmedia() {
     <>
       <div className="flex flex-row gap-1 justify-center border rounded border-solid dark:border-0">
         <Link
-          href="https://www.facebook.com/tallinna.ylikool/"
+          href="https://euraxess.ec.europa.eu"
           target="_blank"
         >
           <Button className="flex items-center gap-2 bg-white " size={"sm"}>
             <Image 
-              src="/soc-logos/facebook-16.png"
-              alt="Facebook logo"
+              src="/foot-logos/euraxess.png"
+              alt="euraxess logo"
               width={10}
               height={10}
             />
           </Button>
         </Link>
         <Link
-          href="https://www.instagram.com/tallinnuniversity/"
+          href="https://www.unica-network.eu"
           target="_blank"
         >
           <Button className="flex items-center gap-2 bg-white " size={"sm"}>
             <Image 
-              src="/soc-logos/instagram-16.png"
-              alt="Instagram logo"
+              src="/foot-logos/unica.png"
+              alt="unica logo"
               width={10}
               height={10}
             />
           </Button>
         </Link>
         <Link
-          href="https://www.youtube.com/user/TallinnaYlikool"
+          href="https://www.eua.eu"
           target="_blank"
         >
           <Button className="flex items-center gap-2 bg-white " size={"sm"}>
             <Image 
-              src="/soc-logos/youtube-16.png"
-              alt="youtube logo"
+              src="/foot-logos/eua.png"
+              alt="eua logo"
               width={10}
               height={10}
             />
           </Button>
         </Link>
         <Link
-          href="https://www.flickr.com/photos/tallinnuniversity/albums"
+          href="https://www.magna-charta.org"
           target="_blank"
         >
           <Button className="flex items-center gap-2 bg-white " size={"sm"}>
             <Image 
-              src="/soc-logos/flickr-16.png"
-              alt="flickr logo"
+              src="/foot-logos/observatory.png"
+              alt="magna-charta logo"
               width={10}
               height={10}
             />
           </Button>
         </Link>
         <Link
-          href="http://virtuaaltuur.tlu.ee"
+          href="https://www.uu.se/en/collaboration-innovation/the-baltic-university-programme/"
           target="_blank"
         >
           <Button className="flex items-center gap-2 bg-white " size={"sm"}>
             <Image 
-              src="/soc-logos/instagram-16.png"
-              alt="virtuaaltuur logo"
+              src="/foot-logos/bup.jpg"
+              alt="bup logo"
               width={10}
               height={10}
             />
           </Button>
         </Link>
         <Link
-          href="https://www.tiktok.com/@tallinnuniversity"
+          href="https://haka.ee/kutsekoolile/hindamisotsused-ja-aruanded/"
           target="_blank"
         >
           <Button className="flex items-center gap-2 bg-white " size={"sm"}>
             <Image 
-              src="/soc-logos/tiktok-16.png"
+              src="/foot-logos/accredited.png"
+              alt="accredited logo"
+              width={10}
+              height={10}
+            />
+          </Button>
+        </Link>
+        <Link
+          href="https://www.educationestonia.org"
+          target="_blank"
+        >
+          <Button className="flex items-center gap-2 bg-white " size={"sm"}>
+            <Image 
+              src="/foot-logos/education-estonia-01.png"
+              alt="education estonia logo"
+              width={10}
+              height={10}
+            />
+          </Button>
+        </Link>
+        <Link
+          href="https://www.filmeu.eu"
+          target="_blank"
+        >
+          <Button className="flex items-center gap-2 bg-white " size={"sm"}>
+            <Image 
+              src="/foot-logos/filmei-01.png"
               alt="tiktok logo"
               width={10}
               height={10}
