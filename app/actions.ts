@@ -8,14 +8,17 @@ import { redirect } from "next/navigation";
 export const signUpAction = async (formData: FormData) => {
   const email = formData.get("email")?.toString();
   const password = formData.get("password")?.toString();
+  const name = formData.get("name")?.toString();
   const supabase = await createClient();
-  const origin = (await headers()).get("origin");
+  //const origin = (await headers()).get("origin");
 
-  if (!email || !password) {
+  const origin = process.env.APP_ORIGIN || "http://localhost:3000";
+
+  if (!email || !password || !name) {
     return { error: "E-mail ja parool on nõutud" };
   }
 
-  const { error } = await supabase.auth.signUp({
+  const { data: user, error: signUpError } = await supabase.auth.signUp({
     email,
     password,
     options: {
@@ -23,16 +26,33 @@ export const signUpAction = async (formData: FormData) => {
     },
   });
 
-  if (error) {
-    console.error(error.code + " " + error.message);
-    return encodedRedirect("error", "/sign-up", error.message);
-  } else {
-    return encodedRedirect(
-      "success",
-      "/sign-up",
-      "Konto loomine õnnestus. Kinnitus link saadetakse Sinu e-mailile.",
-    );
+  if (signUpError) {
+    console.error(signUpError.code + " " + signUpError.message);
+    return encodedRedirect("error", "/sign-up", signUpError.message);
   }
+
+  const { error: insertError } = await supabase
+    .from("users")
+    .insert([
+      {
+        id: user.user?.id, // Supabase user ID as the primary key
+        name,
+        email,
+      },
+    ]);
+
+  if (insertError) {
+    console.error(insertError.message);
+    return encodedRedirect("error", "/sign-up", "Konto loomine ebaõnnestus");
+  }
+
+  return encodedRedirect(
+    "success",
+    "/sign-up",
+    "Konto loomine õnnestus. Kinnitus link saadetakse Sinu e-mailile."
+  );
+
+
 };
 
 export const signInAction = async (formData: FormData) => {
