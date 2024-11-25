@@ -3,6 +3,7 @@ import { ThemeProvider } from "next-themes"
 import "./globals.css"
 import FrontHeader from "@/components/front-header"
 import Sidebar from "@/components/sidebar"
+import DtiSidebar from "@/components/dti-sidebar"
 import { ThemeSwitcher } from "@/components/theme-switcher"
 import Footer from "@/components/footer"
 
@@ -43,6 +44,12 @@ export default function RootLayout({
             </div>
             <div className="absolute right-0 top-0">
               <ThemeSwitcher />
+            </div>
+            {/* <div className="absolute right-0 top-0">
+              <DtiSidebar />
+            </div> */}
+            <div className="absolute right-0 top-0">
+              <DtiSidebar />
             </div>
           </div>
           <main className="flex flex-col items-center">

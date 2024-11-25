@@ -2,22 +2,23 @@
 import React, { useState, useEffect } from "react"
 import { usePathname, useRouter } from "next/navigation"
 
-const Sidebar: React.FC = () => {
+const DtiSidebar: React.FC = () => {
   const router = useRouter()
   const pathname = usePathname()
-	const isMainPage = pathname === "/"
-  const [isOpen, setIsOpen] = useState<boolean>(isMainPage)
+  const isDTIPage = pathname === "/dti"
+  const [isOpen, setIsOpen] = useState<boolean>(isDTIPage)
 
   useEffect(() => {
-    setIsOpen(isMainPage)
-  }, [isMainPage])
+    setIsOpen(isDTIPage)
+  }, [isDTIPage])
 
   return (
     <div className="flex">
       <div
         className={`bg-gradient-to-b from-gradienttlured via-tlured to-gradienttlured text-white 
                     fixed h-screen transition-all 
-                    duration-100 z-10
+                    duration-100 z-20
+                    right-0
                     ${isOpen ? "w-64" : "w-0 overflow-hidden"}`}
       >
         <div className="flex flex-col items-center">
@@ -56,8 +57,9 @@ const Sidebar: React.FC = () => {
       >
         <div className="ml-auto">
           <button
-            className="bg-black hover:bg-logored dark:bg-gradient-to-b dark:from-gradienttlured dark:from-1% dark:to-tlured dark:hover:bg-tlured
-                       text-white font-bold py-2 px-4 rounded"
+            className={`fixed top-4 
+                    z-30 bg-black hover:bg-logored dark:bg-gradient-to-b dark:from-gradienttlured dark:from-1% dark:to-tlured dark:hover:bg-tlured
+                       text-white font-bold py-2 px-4 rounded right-0 ${isOpen ? "right-64" : "right-4"}`}
             onClick={() => setIsOpen(!isOpen)}
           >
             {isOpen ? (
@@ -104,4 +106,4 @@ const Sidebar: React.FC = () => {
   )
 }
 
-export default Sidebar
+export default DtiSidebar
