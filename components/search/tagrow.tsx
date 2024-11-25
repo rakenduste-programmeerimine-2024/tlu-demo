@@ -13,7 +13,7 @@ export default function TagRow({
 }: TagRowProps) {
   return (
     <>
-      <div className="flex-1 flex gap-6 px-4">
+      <div className="flex flex-wrap gap-4 justify-center">
         {buttons.map((value, index) => (
           <TagButton
             key={index}

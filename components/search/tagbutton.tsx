@@ -14,9 +14,14 @@ export default function TagButton({
       <button
         onClick={onClick}
         className={`
-        w-1/2 
-        rounded-full 
-        border-solid border-2
+            flex-1 
+            min-w-[100px] 
+            rounded-full 
+            border-solid border-2 
+            py-2 px-4 
+            text-center
+            text-sm
+            whitespace-nowrap 
         ${isSelected ? "bg-red-500 text-white" : "border-red-500 hover:bg-red-400"}
       `}
       >
