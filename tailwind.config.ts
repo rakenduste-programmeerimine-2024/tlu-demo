@@ -53,6 +53,7 @@ const config = {
           foreground: "hsl(var(--card-foreground))",
         },
         tlured: "#d0043c",
+        gradienttlured: "#69041f",
         logored: "#b20e10",
         black: "#000000",
         white: "#ffffff",
