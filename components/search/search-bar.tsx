@@ -21,7 +21,7 @@ export default function SearchBar() {
     const fetchData = async () => {
       if (debouncedQuery) {
         try {
-          const response = await fetch("/api/search", {
+          const response = await fetch("/api/searchbar", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",

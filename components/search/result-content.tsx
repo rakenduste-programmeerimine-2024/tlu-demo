@@ -1,7 +1,6 @@
 import {
   AiOutlineCalendar,
   AiOutlineFileText,
-  AiOutlineLink,
 } from "react-icons/ai"
 
 interface Entry {
@@ -44,9 +43,6 @@ export default function ResultContent({ entries }: ResultContentProps) {
                   : `${entry.start_date} - ${entry.end_date}`}
               </span>
             </div>
-          </div>
-          <div className="ml-auto">
-            <AiOutlineLink className="size-5" />
           </div>
         </div>
       ))}

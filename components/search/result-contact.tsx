@@ -1,5 +1,4 @@
 import {
-  AiOutlineBank,
   AiOutlineContacts,
   AiOutlineLink,
   AiOutlineMail,
@@ -49,19 +48,9 @@ export default function ResultContact({ entries }: ResultContentProps) {
 
               <div className="flex flex-1 flex-col">
                 <span className="font-semibold text-sm">{entry.position}</span>
-                {/*<span className="font-semibold text-sm bg-blue-200 text-blue-800 px-3 py-1 rounded-lg flex items-center">
-                  <AiOutlineBank className="mr-2" />
-                  {entry.institute}
-                </span>*/}
-                {/*<span className="font-semibold text-sm bg-gray-200 text-gray-700 px-3 py-1 rounded-lg">
-                  {entry.institute}
-                </span>*/}
                 <span className="font-semibold text-sm border-l-4 border-red-500 pl-2">
                   {entry.institute}
                 </span>
-                {/*<span className="font-semibold text-sm bg-gray-100 text-gray-800 px-3 py-1 rounded-md border-l-4 border-red-500 pl-2">
-                  {entry.institute}
-                </span>*/}
                 
                 <span className="font-semibold text-sm flex items-center">
                   <AiOutlinePhone className="mr-2" />
@@ -74,10 +63,6 @@ export default function ResultContact({ entries }: ResultContentProps) {
 
             </div>
 
-          </div>
-
-          <div className="ml-auto">
-            <AiOutlineLink className="size-5" />
           </div>
 
         </div>
