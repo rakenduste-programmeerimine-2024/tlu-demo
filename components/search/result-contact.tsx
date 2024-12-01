@@ -56,12 +56,12 @@ export default function ResultContact({ entries }: ResultContentProps) {
                 {/*<span className="font-semibold text-sm bg-gray-200 text-gray-700 px-3 py-1 rounded-lg">
                   {entry.institute}
                 </span>*/}
-                {/*<span className="font-semibold text-sm border-l-4 border-red-500 pl-2">
-                  {entry.institute}
-                </span>*/}
-                <span className="font-semibold text-sm bg-gray-100 text-gray-800 px-3 py-1 rounded-md border-l-4 border-red-500 pl-2">
+                <span className="font-semibold text-sm border-l-4 border-red-500 pl-2">
                   {entry.institute}
                 </span>
+                {/*<span className="font-semibold text-sm bg-gray-100 text-gray-800 px-3 py-1 rounded-md border-l-4 border-red-500 pl-2">
+                  {entry.institute}
+                </span>*/}
                 
                 <span className="font-semibold text-sm flex items-center">
                   <AiOutlinePhone className="mr-2" />
