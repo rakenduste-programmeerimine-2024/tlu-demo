@@ -2,6 +2,7 @@
 import React, { useState, useEffect } from "react"
 import { usePathname, useRouter } from "next/navigation"
 import { ThemeSwitcher } from "./theme-switcher"
+import LoginButton from "./login/login-form"
 
 const Sidebar: React.FC = () => {
   const router = useRouter()
@@ -78,10 +79,17 @@ const Sidebar: React.FC = () => {
 						OTSI
 					</button>
 				</div>
-				<div className="bg-black hover:bg-logored dark:bg-gradient-to-b dark:from-gradienttlured dark:from-1% dark:to-tlured dark:hover:bg-tlured
-                       text-white font-bold py-2 px-4 rounded mt-2">
-						
-						<ThemeSwitcher />
+				<div
+					className="bg-black hover:bg-logored dark:bg-gradient-to-b dark:from-gradienttlured dark:from-1% dark:to-tlured dark:hover:bg-tlured
+                       text-white font-bold py-2 px-4 rounded mt-2"
+				>
+					<ThemeSwitcher />
+				</div>
+				<div
+					className="bg-black hover:bg-logored dark:bg-gradient-to-b dark:from-gradienttlured dark:from-1% dark:to-tlured dark:hover:bg-tlured
+                       text-white font-bold py-2 px-4 rounded mt-2"
+				>
+					<LoginButton />
 				</div>
 			</div>
 		</div>
