@@ -24,7 +24,7 @@ const DtiSidebar: React.FC = () => {
         <div className="flex flex-col items-center">
           <div className="mt-4">
             <button
-              onClick={() => router.push("/")}
+              onClick={() => router.push("/dti")}
               className="text-white hover:text-gray-300"
             >
               Home
@@ -39,15 +39,6 @@ const DtiSidebar: React.FC = () => {
               About
             </button>
           </div>
-          <div className="mt-4">
-            <button
-              onClick={() => router.push("/dti")}
-              className="text-white 
-                          hover:text-gray-300"
-            >
-              DTI
-            </button>
-          </div>
         </div>
       </div>
 
@@ -58,8 +49,8 @@ const DtiSidebar: React.FC = () => {
         <div className="ml-auto">
           <button
             className={`fixed top-4 
-                    z-30 bg-black hover:bg-logored dark:bg-gradient-to-b dark:from-gradienttlured dark:from-1% dark:to-tlured dark:hover:bg-tlured
-                       text-white font-bold py-2 px-4 rounded right-0 ${isOpen ? "right-64" : "right-4"}`}
+                      bg-black hover:bg-logored dark:bg-gradient-to-b dark:from-gradienttlured dark:from-1% dark:to-tlured dark:hover:bg-tlured
+                      text-white font-bold py-2 px-4 rounded right-0 ${isOpen ? "right-72" : "right-4"}`}
             onClick={() => setIsOpen(!isOpen)}
           >
             {isOpen ? (

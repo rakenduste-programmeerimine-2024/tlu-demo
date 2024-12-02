@@ -4,7 +4,6 @@ import "./globals.css"
 import FrontHeader from "@/components/front-header"
 import Sidebar from "@/components/sidebar"
 import DtiSidebar from "@/components/dti-sidebar"
-import { ThemeSwitcher } from "@/components/theme-switcher"
 import Footer from "@/components/footer"
 
 const defaultUrl = process.env.VERCEL_URL
@@ -42,12 +41,6 @@ export default function RootLayout({
             <div>
               <FrontHeader />
             </div>
-            <div className="absolute right-0 top-0">
-              <ThemeSwitcher />
-            </div>
-            {/* <div className="absolute right-0 top-0">
-              <DtiSidebar />
-            </div> */}
             <div className="absolute right-0 top-0">
               <DtiSidebar />
             </div>
