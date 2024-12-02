@@ -103,7 +103,7 @@ export default function Socialmedia() {
         >
           <Button className="flex items-center gap-2 bg-white " size={"sm"}>
             <Image 
-              src="/foot-logos/filmei-01.png"
+              src="/foot-logos/filmeu-01.png"
               alt="tiktok logo"
               width={10}
               height={10}
