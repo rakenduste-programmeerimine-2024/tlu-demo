@@ -22,22 +22,34 @@ export default function Pagination({
     if (currentPage > totalPages) {
         currentPage = totalPages
     }
-
-    if (currentPage === 1) {
-      pageList.push("2", "3", "...", (totalPages - 1).toString(), (totalPages).toString());
-    } else if (currentPage === 2) {
-      pageList.push("2", "3", "4", "...", (totalPages - 1).toString(), (totalPages).toString());
-    } else if (currentPage === 3) {
-      pageList.push("2", "3", "4", "5", "...", (totalPages - 1).toString(), (totalPages).toString());
-    } else if (currentPage > 3 && currentPage < totalPages - 2) {
-      pageList.push("...", (currentPage - 1).toString(), currentPage.toString(), (currentPage + 1).toString(), "...", (totalPages).toString() );
-    } else if (currentPage === totalPages - 2) {
-      pageList.push("...", (totalPages - 4).toString(), (totalPages - 3).toString(), (totalPages - 2).toString(), (totalPages - 1).toString(), (totalPages).toString());
-    } else if (currentPage === totalPages - 1) {
-      pageList.push("...", (totalPages - 3).toString(), (totalPages - 2).toString(), (totalPages - 1).toString(), (totalPages).toString());
-    } else if (currentPage === totalPages) {
-      pageList.push("...", (totalPages - 2).toString(), (totalPages - 1).toString(), (totalPages).toString());
+    
+    if (totalPages <= 5) {
+      for (let i = 2; i <= totalPages; i++) {
+        pageList.push(i.toString());
+      }
+    } else {
+      if (currentPage > 3) {
+        pageList.push("...");
+      }
+    
+      for (
+        let i = Math.max(2, currentPage - 1);
+        i <= Math.min(totalPages - 1, currentPage + 1);
+        i++
+      ) {
+        if (i !== 1 && i !== totalPages) {
+          pageList.push(i.toString());
+        }
+      }
+    
+      if (currentPage < totalPages - 2) {
+        pageList.push("...");
+      }
+    
+      pageList.push(totalPages.toString());
     }
+    
+    
   
     return (
       <div className="flex gap-2 justify-center">

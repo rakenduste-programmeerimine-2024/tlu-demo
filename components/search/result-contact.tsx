@@ -4,19 +4,10 @@ import {
   AiOutlineMail,
   AiOutlinePhone,
 } from "react-icons/ai"
-
-interface Contact {
-  name: string
-  position: string
-  institute: string
-  phone: string
-  email: string
-  picture: string
-  type: string
-}
+import { Contacts } from "./types"
 
 interface ResultContentProps {
-  entries: Contact[]
+  entries: Contacts[]
 }
 
 export default function ResultContact({ entries }: ResultContentProps) {
@@ -35,7 +26,7 @@ export default function ResultContact({ entries }: ResultContentProps) {
                 </h1>
                 <span className="inline-flex items-center bg-gray-200 text-gray-700 text-xs font-semibold px-2 py-1 rounded-md">
                     <AiOutlineContacts className="mr-1" />
-                    {entry.type}
+                    Isik
                 </span>
             </div>
 

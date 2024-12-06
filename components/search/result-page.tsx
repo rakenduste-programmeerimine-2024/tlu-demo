@@ -1,7 +1,4 @@
-import {
-  AiOutlineCalendar,
-  AiOutlineFileText,
-} from "react-icons/ai"
+import { AiOutlineFileText } from "react-icons/ai"
 import { Pages } from "./types"
 
 interface ResultContentProps {
@@ -22,14 +19,16 @@ export default function ResultPage({ entries }: ResultContentProps) {
             </h1>
             <div className="flex items-center gap-2">
               <span className="inline-flex items-center bg-gray-200 text-gray-700 text-xs font-semibold px-2 py-1 rounded-md">
-                  <AiOutlineFileText className="mr-1" />
+                <AiOutlineFileText className="mr-1" />
                 Sisuleht
               </span>
-              {/*<span className="font-semibold text-sm">
-                {entry.start_date === entry.end_date
-                  ? entry.start_date
-                  : `${entry.start_date} - ${entry.end_date}`}
-              </span>*/}
+              <span className="font-semibold text-sm">
+                {new Date(entry.created_at).toLocaleString("et-EE", {
+                  day: "2-digit",
+                  month: "2-digit",
+                  year: "numeric",
+                })}
+              </span>
             </div>
           </div>
         </div>

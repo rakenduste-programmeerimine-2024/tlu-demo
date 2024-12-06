@@ -26,6 +26,17 @@ export default function SearchTest() {
 
   const [searchResults, setSearchResults] = useState([])
 
+  const [pagesData, setPagesData] = useState([])
+  const [eventsData, setEventsData] = useState([])
+  const [contactsData, setContactsData] = useState([])
+ /* const [countData, setCountData] = useState([])*/
+
+  const [countData, setCountData] = useState({
+    pages: 0,
+    events: 0,
+    contacts: 0,
+  });
+
   async function fetchData() {
 
     if (!submittedQuery) {
@@ -50,14 +61,29 @@ export default function SearchTest() {
       console.log(data);
   
       if (data.success) {
-        setSearchResults(data.data);
+        setPagesData(data.data.pages)
+        setEventsData(data.data.events)
+        setContactsData(data.data.contacts)
+        
+        setCountData({
+          pages: data.count.pages,
+          events: data.count.events,
+          contacts: data.count.contacts,
+        });
+
       } else {
         console.error("Failed to fetch results:", data.error);
-        setSearchResults([]);
+        setPagesData([])
+        setEventsData([])
+        setContactsData([])
+        setCountData({ pages: 0, events: 0, contacts: 0 });
       }
     } catch (error) {
       console.error("Fetch error:", error);
-      setSearchResults([]);
+      setPagesData([])
+      setEventsData([])
+      setContactsData([])
+      setCountData({ pages: 0, events: 0, contacts: 0 });
     }
   }
 
@@ -93,10 +119,12 @@ export default function SearchTest() {
   function handleTagChange(tag: string) {
     setSelectedTag(tag)
     setPage(1)
+    updateSearchParams({ tag })
   }
 
   function handlePageChange(newPage: number) {
     setPage(newPage)
+    updateSearchParams({ page: newPage.toString() })
   }
 
   function handleSubmit(e: React.FormEvent) {
@@ -141,11 +169,15 @@ export default function SearchTest() {
 
         </form>
 
-        <ResultList results={searchResults} />
+        <ResultList results={{
+          pages: pagesData, 
+          events: eventsData,
+          contacts: contactsData,
+        }} />
 
         <Pagination
           currentPage={page}
-          totalPages={100}
+          totalPages={Math.ceil((countData.pages + countData.events + countData.contacts) / 10)} // Math.ceil((countData.pages + countData.events + countData.contacts) / 10)
           onPageChange={handlePageChange}
         />
       </main>

@@ -1,40 +1,31 @@
 import ResultContact from "./result-contact"
+import ResultEvents from "./result-event"
 import ResultPage from "./result-page"
-import { Pages } from "./types"
-
-interface Contact {
-  name: string
-  position: string
-  institute: string
-  phone: string
-  email: string
-  picture: string
-  type: string
-}
+import { Pages, Events, Contacts } from "./types"
 
 interface ResultListProps {
-  results: Array<Pages>;
+  results: {
+    pages: Pages[]
+    events: Events[]
+    contacts: Contacts[]
+  }
 }
-
-const testContacts: Contact[] = [
-    {
-      name: "Kristjan Mägi",
-      position: "IT Spetsialist",
-      institute: "Informaatika Instituut",
-      phone: "+372 512 3456",
-      email: "kristjan.magi@university.ee",
-      picture: "https://avatar.iran.liara.run/public", // Replace with actual image URL if available
-      type: "Kontakt"
-    },
-]
 
 export default function ResultList({ results }: ResultListProps) {
   return (
-    <>
-      <div className="flex-1 flex flex-col gap-2">
-        <ResultPage entries={results} />
-        <ResultContact entries={testContacts} />
-      </div>
-    </>
+    <div className="flex-1 flex flex-col gap-2">
+
+      {results.pages && results.pages.length > 0 && (
+        <ResultPage entries={results.pages} />
+      )}
+      
+      {results.events && results.events.length > 0 && (
+        <ResultEvents entries={results.events} />
+      )}
+
+      {results.contacts && results.contacts.length > 0 && (
+        <ResultContact entries={results.contacts} />
+      )}
+    </div>
   )
 }
