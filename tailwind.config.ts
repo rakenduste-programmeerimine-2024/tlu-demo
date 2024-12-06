@@ -53,6 +53,7 @@ const config = {
           foreground: "hsl(var(--card-foreground))",
         },
         tlured: "#d0043c",
+        gradienttlured: "#69041f",
         logored: "#b20e10",
         black: "#000000",
         white: "#ffffff",
@@ -78,7 +79,10 @@ const config = {
       },
     },
   },
-  plugins: [require("tailwindcss-animate")],
+  plugins: [
+    require("tailwindcss-animate"),
+    require("daisyui")
+  ],
 } satisfies Config;
 
 export default config;
