@@ -17,7 +17,7 @@ export default function SearchTest() {
 
   const [query, setQuery] = useState(searchParams.get("query") || "")
   const [submittedQuery, setSubmittedQuery] = useState(
-    searchParams.get("query") || ""
+    searchParams.get("query") || "",
   )
   const [selectedTag, setSelectedTag] = useState(
     searchParams.get("tag") || "Kõik",
@@ -29,16 +29,15 @@ export default function SearchTest() {
   const [pagesData, setPagesData] = useState([])
   const [eventsData, setEventsData] = useState([])
   const [contactsData, setContactsData] = useState([])
- /* const [countData, setCountData] = useState([])*/
+  /* const [countData, setCountData] = useState([])*/
 
   const [countData, setCountData] = useState({
     pages: 0,
     events: 0,
     contacts: 0,
-  });
+  })
 
   async function fetchData() {
-
     if (!submittedQuery) {
       console.log("No query found")
       return
@@ -55,35 +54,34 @@ export default function SearchTest() {
           tag: selectedTag,
           page: page,
         }),
-      });
-  
-      const data = await response.json();
-      console.log(data);
-  
+      })
+
+      const data = await response.json()
+      console.log(data)
+
       if (data.success) {
         setPagesData(data.data.pages)
         setEventsData(data.data.events)
         setContactsData(data.data.contacts)
-        
+
         setCountData({
           pages: data.count.pages,
           events: data.count.events,
           contacts: data.count.contacts,
-        });
-
+        })
       } else {
-        console.error("Failed to fetch results:", data.error);
+        console.error("Failed to fetch results:", data.error)
         setPagesData([])
         setEventsData([])
         setContactsData([])
-        setCountData({ pages: 0, events: 0, contacts: 0 });
+        setCountData({ pages: 0, events: 0, contacts: 0 })
       }
     } catch (error) {
-      console.error("Fetch error:", error);
+      console.error("Fetch error:", error)
       setPagesData([])
       setEventsData([])
       setContactsData([])
-      setCountData({ pages: 0, events: 0, contacts: 0 });
+      setCountData({ pages: 0, events: 0, contacts: 0 })
     }
   }
 
@@ -133,8 +131,8 @@ export default function SearchTest() {
       console.log("No query changes.")
       return
     }
-    setSubmittedQuery(query.trim()) 
-    setPage(1) 
+    setSubmittedQuery(query.trim())
+    setPage(1)
     updateSearchParams({ query: query.trim(), tag: selectedTag, page: "1" })
   }
 
@@ -149,10 +147,19 @@ export default function SearchTest() {
           className="w-full max-w-[500px] flex-1 flex flex-col gap-6 px-4 relative"
           onSubmit={handleSubmit}
         >
-          <SearchBarNoFill
-            value={query}
-            onChange={handleSearchChange}
-          />
+          <div className="flex items-center gap-4 w-full">
+            <SearchBarNoFill
+              value={query}
+              onChange={handleSearchChange}
+            />
+
+            <button
+              type="submit"
+              className="relative flex items-center justify-center p-3 w-16 h-10 rounded-full bg-tlured border-2 border-tlured text-white text-lg shadow-md transform hover:scale-105 hover:shadow-lg transition-all duration-200 ease-in-out"
+            >
+              <AiOutlineSearch className="text-xl" />
+            </button>
+          </div>
 
           <TagRow
             buttons={tags}
@@ -160,24 +167,27 @@ export default function SearchTest() {
             onTagChange={handleTagChange}
           />
 
-          <div className="flex justify-center">
-            <button className="relative p-4 w-2/3 h-8 rounded-full bg-slate-200 border-solid border-2 border-slate-800 flex items-center hover:bg-slate-500">
-              <AiOutlineSearch className="absolute left-4" />
-              <span className="mx-auto">Otsi</span>
+          {/*<div className="flex justify-center mt-4">
+            <button className="relative p-3 w-48 h-10 rounded-lg bg-slate-300 border-2 border-slate-700 flex items-center hover:bg-slate-500 transition-all duration-200 ease-in-out">
+              <AiOutlineSearch className="text-xl text-gray-600 mr-3" />
+              <span className="text-sm font-medium text-gray-700">Otsi</span>
             </button>
-          </div>
-
+          </div>*/}
         </form>
 
-        <ResultList results={{
-          pages: pagesData, 
-          events: eventsData,
-          contacts: contactsData,
-        }} />
+        <ResultList
+          results={{
+            pages: pagesData,
+            events: eventsData,
+            contacts: contactsData,
+          }}
+        />
 
         <Pagination
           currentPage={page}
-          totalPages={Math.ceil((countData.pages + countData.events + countData.contacts) / 10)} // Math.ceil((countData.pages + countData.events + countData.contacts) / 10)
+          totalPages={Math.ceil(
+            (countData.pages + countData.events + countData.contacts) / 10,
+          )} // Math.ceil((countData.pages + countData.events + countData.contacts) / 10)
           onPageChange={handlePageChange}
         />
       </main>

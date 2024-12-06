@@ -11,10 +11,10 @@ export default function ResultPage({ entries }: ResultContentProps) {
       {entries.map((entry, index) => (
         <div
           key={index}
-          className="border-b-2 flex-1 flex items-center px-4 py-2 hover:border-red-500 hover:shadow-lg transform hover:scale-105 transition duration-200 cursor-pointer"
+          className="border-b-2 flex-1 flex items-center px-4 py-2 hover:border-tlured hover:shadow-lg transform hover:scale-105 transition duration-200 cursor-pointer"
         >
           <div>
-            <h1 className="italic underline decoration-red-500 text-lg">
+            <h1 className="italic underline decoration-tlured text-lg">
               {entry.title}
             </h1>
             <div className="flex items-center gap-2">

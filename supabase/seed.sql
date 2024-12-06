@@ -33,89 +33,305 @@ values
 
 INSERT INTO public.pages (title, content, author, institute, deleted)
 VALUES
--- Page for an institute overview
 ('Tallinna Ülikooli Ülevaade', 
 'Tallinna Ülikool on üks Eesti juhtivaid ülikoole, pakkudes laia valikut bakalaureuse-, magistri- ja doktoriõppe programme.', 
- 1, -- Assuming 'Joonas Tamm' (ID = 1) is the author
- 1, -- 'Tallinna Ülikool' (ID = 1) as the institute
- false),
+1, 
+1, 
+false),
 
--- Page for an event announcement
 ('Seminar: Teaduse ja tehnoloogia ristteed', 
- 'Liituge meie seminariga, kus arutleme, kuidas teadus ja tehnoloogia muudavad meie igapäevaelu.', 
- 2, -- Assuming 'Rudolf Põder' (ID = 2) is the author
- 3, -- 'Digitehnoloogiate instituut' (ID = 3) as the institute
- false),
+'Liituge meie seminariga, kus arutleme, kuidas teadus ja tehnoloogia muudavad meie igapäevaelu.', 
+2, 
+3, 
+false),
 
--- Page for course information
 ('Õppeaine: Multimeedia tehnoloogiad', 
- 'Selles õppeaines uurime, kuidas luua kaasaegseid multimeediarakendusi, sealhulgas filme ja interaktiivseid platvorme.', 
- 3, -- Assuming 'Mihkel Välgu' (ID = 3) is the author
- 2, -- 'Balti filmi, meedia ja kunstide instituut' (ID = 2) as the institute
- false),
+'Selles õppeaines uurime, kuidas luua kaasaegseid multimeediarakendusi, sealhulgas filme ja interaktiivseid platvorme.', 
+3, 
+2, 
+false),
 
--- Page for an event report
 ('Teadussündmus: Rohepöörde võimalused', 
- 'Arutelu keskmes oli, kuidas Eesti ülikoolid saavad panustada jätkusuutlikkuse edendamisse.', 
- 4, -- Assuming 'Inimene Eitea' (ID = 4) is the author
- 6, -- 'Loodus- ja terviseteaduste instituut' (ID = 6) as the institute
- false),
+'Arutelu keskmes oli, kuidas Eesti ülikoolid saavad panustada jätkusuutlikkuse edendamisse.', 
+4, 
+6, 
+false),
 
--- Archived page
 ('Ajalooline vaade: Tallinna Ülikooli areng', 
- 'Ülevaade Tallinna Ülikooli ajaloost ja olulisematest verstapostidest.', 
- 1, -- 'Joonas Tamm' (ID = 1) as the author
- 1, -- 'Tallinna Ülikool' (ID = 1) as the institute
- true); -- Marked as deleted
+'Ülevaade Tallinna Ülikooli ajaloost ja olulisematest verstapostidest.', 
+1, 
+1, 
+true),
 
- INSERT INTO public.events (author, title, start_time, end_time, institute, cancelled, type, location)
+('Seminar: Nutikad linnad ja digitaalne tulevik', 
+'Arutame, kuidas nutikad linnad arenevad ja milline on digitaalsete lahenduste roll linnade arengus.', 
+2, 
+3, 
+false),
+
+('Õppeaine: Tervise ja heaolu teadus', 
+'Õppeaine käsitleb teadusuuringute tegemist tervise ja heaolu valdkonnas, keskendudes erialastele teaduslikele meetoditele.', 
+3, 
+6, 
+false),
+
+('Teaduskonverents: Uued suundumused biotehnoloogias', 
+'Keskendume uusimatele teadusuuringute ja arengute saavutustele biotehnoloogia valdkonnas.', 
+4, 
+6, 
+false),
+
+('Töötoad: Innovatsioon ja tehnoloogia areng', 
+'Tule ja osale meie töötubades, kus räägime viimastest teadusuuringutest innovatsioonis ja tehnoloogias.', 
+1, 
+2, 
+false),
+
+('Õppeaine: Arvutivõrgud ja andmeside', 
+'Selles õppeaines käsitletakse arvutivõrkude ülesehitust ja andmeside võimalusi suurtes süsteemides.', 
+2, 
+3, 
+false),
+
+('Tulevikulinnad: Kuidas muuta elukeskkonda', 
+'Vaatleme, kuidas tehnoloogia aitab kaasa tulevikulinnade arengule ja elukeskkonna parandamisele.', 
+3, 
+1, 
+false),
+
+('Konverents: Jätkusuutlik tehnoloogia ja keskkond', 
+'Arutame, kuidas arendada jätkusuutlikke tehnoloogilisi lahendusi, mis aitavad kaasa keskkonnaalaste eesmärkide saavutamisele.', 
+4, 
+6, 
+false),
+
+('Õppeaine: Digitaalsed meedia praktikum', 
+'Õppeaine eesmärk on arendada praktilisi oskusi digitaalse meedia valdkonnas, kasutades uusimaid tööriistu ja tehnoloogiaid.', 
+1, 
+2, 
+false),
+
+('Tallinna Ülikooli teadusuuringute ülevaade', 
+'Ülevaade Tallinna Ülikooli teadusuuringutest, keskendudes teadusprojektidele ja teadlaste saavutustele.', 
+2, 
+1, 
+true),
+
+('Konverents: Innovatsiooni ja teaduse roll ühiskonnas', 
+'Arutame teaduse ja innovatsiooni mõju ühiskonnale ning kuidas need kujundavad meie tulevikku.', 
+3, 
+3, 
+false),
+
+('Ajalooline ülevaade: Tallinna Ülikooli teadusuuringute ajalugu', 
+'Ülevaade Tallinna Ülikooli teadusuuringute arengust ja tähtsamatest teadusprojektidest.', 
+4, 
+1, 
+true),
+
+('Õppeaine: Andmeanalüüs ja statistika', 
+'Selles õppeaines uuritakse andmeanalüüsi ja statistika põhimeetodeid ning nende rakendusi teadusuuringutes.', 
+1, 
+2, 
+false),
+
+('Seminar: Tehnoloogia mõju inimkonnale', 
+'Arutame, kuidas tehnoloogia areng mõjutab inimkonda ja meie igapäevaelu.', 
+2, 
+3, 
+false),
+
+('Loodus- ja keskkonnauuringute ülevaade', 
+'Ülevaade looduse ja keskkonna teadusuuringutest, mis keskenduvad Eesti looduse kaitsmisele ja keskkonnaalastele projektidele.', 
+4, 
+6, 
+false),
+
+('Tallinna Ülikooli teadusprojektide galerii', 
+'Esitleme Tallinna Ülikooli teadusprojektide galerii, kus tutvustatakse teaduslike saavutuste visuaalseid näiteid.', 
+3, 
+1, 
+true);
+
+
+INSERT INTO public.events (author, title, start_time, end_time, institute, cancelled, type, location)
 VALUES
--- Event: Doctoral Thesis Defense
-(2, -- Assuming 'Rudolf Põder' (ID = 2) is the author
- 'Doktoritöö kaitsmine: Tehisintellekti mõju ühiskonnale', 
- '2024-01-15 10:00:00+02', -- Start time
- '2024-01-15 12:00:00+02', -- End time
- 1, -- 'Tallinna Ülikool' (ID = 1) as the institute
- false, -- Event is not cancelled
- 2, -- 'Doktoritöö kaitsmine' (ID = 2) as the event type
- 'Tallinna Ülikooli peahoone, ruum A-101'), -- Location
+(2, 
+'Doktoritöö kaitsmine: Tehisintellekti mõju ühiskonnale', 
+'2024-01-15 10:00:00+02', 
+'2024-01-15 12:00:00+02', 
+1, 
+false, 
+2, 
+'Tallinna Ülikooli peahoone, ruum A-101'),
 
--- Event: Public Lecture
-(3, -- 'Mihkel Välgu' (ID = 3) as the author
- 'Avalik loeng: Eesti digitehnoloogiate tulevik', 
- '2024-02-10 14:00:00+02', -- Start time
- '2024-02-10 16:00:00+02', -- End time
- 3, -- 'Digitehnoloogiate instituut' (ID = 3) as the institute
- false, -- Event is not cancelled
- 4, -- 'Avalik loeng' (ID = 4) as the event type
- 'Digitehnoloogiate instituut, auditoorium 3-204'), -- Location
+(3, 
+'Avalik loeng: Eesti digitehnoloogiate tulevik', 
+'2024-02-10 14:00:00+02', 
+'2024-02-10 16:00:00+02', 
+3, 
+false, 
+4, 
+'Digtehnoloogiate instituut, auditoorium 3-204'),
 
--- Event: Science Conference
-(1, -- 'Joonas Tamm' (ID = 1) as the author
- 'Konverents: Eesti teaduse väljakutsed ja lahendused', 
- '2024-03-05 09:00:00+02', -- Start time
- '2024-03-05 17:00:00+02', -- End time
- 6, -- 'Loodus- ja terviseteaduste instituut' (ID = 6) as the institute
- false, -- Event is not cancelled
- 7, -- 'Konverents' (ID = 7) as the event type
- 'Tallinna Ülikooli aula'), -- Location
+(1, 
+'Konverents: Eesti teaduse väljakutsed ja lahendused', 
+'2024-03-05 09:00:00+02', 
+'2024-03-05 17:00:00+02', 
+6, 
+false, 
+7, 
+'Tallinna Ülikooli aula'),
 
--- Event: Seminar
-(4, -- 'Inimene Eitea' (ID = 4) as the author
- 'Seminar: Rohepöörde praktilised sammud', 
- '2024-04-20 13:00:00+02', -- Start time
- '2024-04-20 15:30:00+02', -- End time
- 6, -- 'Loodus- ja terviseteaduste instituut' (ID = 6) as the institute
- false, -- Event is not cancelled
- 5, -- 'Seminar' (ID = 5) as the event type
- 'Tallinna Ülikooli rohelise arengu labor'), -- Location
+(4, 
+'Seminar: Rohepöörde praktilised sammud', 
+'2024-04-20 13:00:00+02', 
+'2024-04-20 15:30:00+02', 
+6, 
+false, 
+5, 
+'Tallinna Ülikooli rohelise arengu labor'),
 
--- Cancelled Event
-(1, -- 'Joonas Tamm' (ID = 1) as the author
- 'Koolitus: Andmete analüüsi põhialused', 
- '2024-05-10 09:00:00+02', -- Start time
- '2024-05-10 12:00:00+02', -- End time
- 3, -- 'Digitehnoloogiate instituut' (ID = 3) as the institute
- true, -- Event is cancelled
- 1, -- 'Koolitus' (ID = 1) as the event type
- 'Digitehnoloogiate instituut, arvutiklass 1-101'); -- Location
+(1, 
+'Koolitus: Andmete analüüsi põhialused', 
+'2024-05-10 09:00:00+02', 
+'2024-05-10 12:00:00+02', 
+3, 
+true, 
+1, 
+'Digtehnoloogiate instituut, arvutiklass 1-101'),
+
+(2, 
+'Avalik loeng: Digitaaltehnoloogia arengud 2024', 
+'2024-06-12 14:00:00+02', 
+'2024-06-12 16:00:00+02', 
+3, 
+false, 
+4, 
+'Digtehnoloogiate instituut, auditoorium 3-101'),
+
+(3, 
+'Seminar: Teadus ja haridus – digitaalsete lahenduste roll', 
+'2024-07-22 10:00:00+02', 
+'2024-07-22 12:00:00+02', 
+2, 
+false, 
+5, 
+'Balti filmi, meedia ja kunstide instituut, auditoorium 2-205'),
+
+(1, 
+'Teadussündmus: Tervise teadus ja innovatsioon', 
+'2024-08-18 09:00:00+02', 
+'2024-08-18 15:00:00+02', 
+6, 
+false, 
+3, 
+'Tallinna Ülikooli teaduskompleks'),
+
+(4, 
+'Seminar: Klimamuutused ja teaduslikud lahendused', 
+'2024-09-05 13:00:00+02', 
+'2024-09-05 16:00:00+02', 
+5, 
+false, 
+5, 
+'Humanitaarteaduste instituut, auditoorium 1-101'),
+
+(1, 
+'Konverents: Tulevikukeskkonnad – teadus ja tehnoloogia', 
+'2024-10-01 08:30:00+02', 
+'2024-10-01 18:00:00+02', 
+7, 
+false, 
+7, 
+'Ühiskonnateaduste instituut, suur saal'),
+
+(2, 
+'Doktoritöö kaitsmine: Innovatsioon ja majandusareng', 
+'2024-11-10 11:00:00+02', 
+'2024-11-10 13:00:00+02', 
+1, 
+false, 
+2, 
+'Tallinna Ülikool, ruum B-202'),
+
+(3, 
+'Avalik loeng: Tehnoloogia ja ühiskonna vastastikune mõju', 
+'2024-12-01 15:00:00+02', 
+'2024-12-01 17:00:00+02', 
+4, 
+false, 
+4, 
+'Haridusteaduste instituut, auditoorium 4-101'),
+
+(4, 
+'Seminar: Jätkusuutlik areng ja teadus', 
+'2025-01-20 09:00:00+02', 
+'2025-01-20 11:30:00+02', 
+5, 
+false, 
+5, 
+'Humanitaarteaduste instituut, seminariruum 2-101'),
+
+(1, 
+'Konverents: Globaliseerumine ja teadus', 
+'2025-02-15 08:00:00+02', 
+'2025-02-15 17:00:00+02', 
+6, 
+false, 
+7, 
+'Ühiskonnateaduste instituut, konverentsikeskus'),
+
+(2, 
+'Doktoritöö kaitsmine: Kunstitehnoloogia ja kultuuripärandi uurimine', 
+'2025-03-10 10:00:00+02', 
+'2025-03-10 12:00:00+02', 
+2, 
+false, 
+2, 
+'Balti filmi, meedia ja kunstide instituut, auditoorium 2-102'),
+
+(3, 
+'Avalik loeng: Tehisintellekti eetika', 
+'2025-04-05 14:00:00+02', 
+'2025-04-05 16:00:00+02', 
+3, 
+false, 
+4, 
+'Digtehnoloogiate instituut, auditoorium 3-101'),
+
+(4, 
+'Teadussündmus: Tervise teadusuuringud ja innovatsioon', 
+'2025-05-15 09:00:00+02', 
+'2025-05-15 14:00:00+02', 
+6, 
+false, 
+3, 
+'Tallinna Ülikool, teaduskompleks'),
+
+(1, 
+'Koolitus: Andmeanalüüsi uus suund', 
+'2025-06-25 10:00:00+02', 
+'2025-06-25 13:00:00+02', 
+4, 
+true, 
+1, 
+'Haridusteaduste instituut, arvutiklass 1-101'),
+
+(2, 
+'Avalik loeng: Terviseuuenduse teaduslikud alused', 
+'2025-07-10 16:00:00+02', 
+'2025-07-10 18:00:00+02', 
+1, 
+false, 
+4, 
+'Tallinna Ülikooli peahoone, auditoorium 1-101'),
+
+(3, 
+'Seminar: Keskkonnauuringud ja teadus', 
+'2025-08-30 13:00:00+02', 
+'2025-08-30 15:00:00+02', 
+5, 
+false, 
+5, 
+'Humanitaarteaduste instituut, auditoorium 1-102');

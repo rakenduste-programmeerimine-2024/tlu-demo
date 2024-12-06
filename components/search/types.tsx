@@ -12,10 +12,10 @@ export interface Events {
 }
 
 export interface Contacts {
-    name: string
-    position: string
-    institute: string
-    phone: string
-    email: string
-    picture: string
+  name: string
+  position: string
+  institute: string
+  phone: string
+  email: string
+  picture: string
 }

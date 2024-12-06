@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect } from "react"
 
 // Source for code: https://hackernoon.com/how-to-use-debounce-in-nextjs
 

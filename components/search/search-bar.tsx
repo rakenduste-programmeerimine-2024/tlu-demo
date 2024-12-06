@@ -15,7 +15,7 @@ export default function SearchBar() {
   const [query, setQuery] = useState<string>("")
   const [searchResults, setSearchResults] = useState<Results[]>([])
 
-  const debouncedQuery = useDebounce(query, 500);
+  const debouncedQuery = useDebounce(query, 500)
 
   useEffect(() => {
     const fetchData = async () => {
@@ -24,13 +24,13 @@ export default function SearchBar() {
           const response = await fetch("/api/searchbar", {
             method: "POST",
             headers: {
-                "Content-Type": "application/json",
+              "Content-Type": "application/json",
             },
-            body: JSON.stringify({ searchString: debouncedQuery })
+            body: JSON.stringify({ searchString: debouncedQuery }),
           })
 
           const data = await response.json()
-          console.log(data);
+          console.log(data)
           if (data.success) {
             setSearchResults(data.data)
           } else {
@@ -48,7 +48,7 @@ export default function SearchBar() {
 
     fetchData()
   }, [debouncedQuery])
-  
+
   const handleSearch = (event: ChangeEvent<HTMLInputElement>) => {
     setQuery(event.target.value)
   }

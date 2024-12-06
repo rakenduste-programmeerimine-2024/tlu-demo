@@ -14,11 +14,10 @@ interface ResultListProps {
 export default function ResultList({ results }: ResultListProps) {
   return (
     <div className="flex-1 flex flex-col gap-2">
-
       {results.pages && results.pages.length > 0 && (
         <ResultPage entries={results.pages} />
       )}
-      
+
       {results.events && results.events.length > 0 && (
         <ResultEvents entries={results.events} />
       )}
