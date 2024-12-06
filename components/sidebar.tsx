@@ -49,7 +49,17 @@ const Sidebar: React.FC = () => {
               Sisseastumine
             </button>
           </div>
+          <div className="mt-4">
+            <button
+              onClick={() => router.push("/dtiAdmissions")}
+              className="text-white 
+                          hover:text-gray-300"
+            >
+              DTI sisseastumine
+            </button>
+          </div>
         </div>
+        
       </div>
 
       <div
