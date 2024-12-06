@@ -37,6 +37,15 @@ const Sidebar: React.FC = () => {
               About
             </button>
           </div>
+		  <div className="mt-4">
+						<button
+							onClick={() => router.push("/admissions")}
+							className="text-white 
+                          hover:text-gray-300"
+            >
+              Sisseastumine
+            </button>
+          </div>
         </div>
       </div>
 
