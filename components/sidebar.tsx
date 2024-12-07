@@ -33,21 +33,21 @@ const Sidebar: React.FC = () => {
 							onClick={() => router.push("/aboutUs")}
 							className="text-white 
                           hover:text-gray-300"
-						>
-							About
-						</button>
-					</div>
-					<div className="mt-4">
+            >
+              About
+            </button>
+          </div>
+		  <div className="mt-4">
 						<button
-							onClick={() => router.push("/dti")}
+							onClick={() => router.push("/admissions")}
 							className="text-white 
                           hover:text-gray-300"
-						>
-							DTI
-						</button>
-					</div>
-				</div>
-			</div>
+            >
+              Sisseastumine
+            </button>
+          </div>
+        </div>
+      </div>
 
 			<div
 				className={`flex-1 p-4 
