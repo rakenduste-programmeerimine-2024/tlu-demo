@@ -76,7 +76,7 @@ export default function SearchTest() {
           />
 
           <div className="flex justify-center">
-            <button className="relative p-4 w-2/3 h-8 rounded-full bg-slate-200 border-solid border-2 border-slate-800 flex items-center hover:bg-slate-500">
+            <button className="relative p-4 w-2/3 h-8 rounded-full bg-white border-solid border-2 border-slate-800 flex items-center hover:bg-slate-500 text-black">
               <AiOutlineSearch className="absolute left-4" />
               <span className="mx-auto">Otsi</span>
             </button>

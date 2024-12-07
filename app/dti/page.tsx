@@ -1,19 +1,15 @@
-export default async function Index() {
+import React from "react"
+import CustomCarousel from "@/components/customcarousel/customcarousel"
+
+export default function App() {
+  const images = [
+    "/logos/Digitehnoloogiate instituut-logo-eng.png",
+    "/logos/IMG_2977.JPG",
+  ]
+
   return (
-    <>
-      <main>
-        <div className="w-96 h-60 bg-slate-300 align-middle flex justify-center mb-10">
-          <p className="w-full flex flex-col justify-center text-center">
-            DTI BANNER
-          </p>
-        </div>
-        <div className="w-96 h-60 bg-slate-300 align-middle flex justify-center">
-          <p className="w-full flex flex-col justify-center text-center">
-            DTI BANNER
-          </p>
-        </div>
-      </main>
-      
-    </>
+    <div>
+      <CustomCarousel images={images} />
+    </div>
   )
 }
