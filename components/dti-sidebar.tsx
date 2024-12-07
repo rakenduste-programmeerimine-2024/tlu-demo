@@ -32,11 +32,19 @@ const DtiSidebar: React.FC = () => {
           </div>
           <div className="mt-4">
             <button
-              onClick={() => router.push("/aboutUs")}
+              onClick={() => router.push("/dtiAboutUs")}
               className="text-white 
                           hover:text-gray-300"
             >
               About
+            </button>
+          </div>
+          <div className="mt-4">
+            <button
+              onClick={() => router.push("/dtiAdmissions")}
+              className="text-white hover:text-gray-300"
+            >
+              Sisseastumine
             </button>
           </div>
         </div>
