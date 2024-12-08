@@ -7,7 +7,7 @@ import LoginButton from "./login/login-form"
 const Sidebar: React.FC = () => {
   const router = useRouter()
   const pathname = usePathname()
-	const isMainPage = pathname === "/"
+  const isMainPage = pathname === "/"
   const [isOpen, setIsOpen] = useState<boolean>(isMainPage)
 
   useEffect(() => {
@@ -19,9 +19,16 @@ const Sidebar: React.FC = () => {
       <div
         className={`bg-gradient-to-b from-gradienttlured via-tlured to-gradienttlured text-white 
                     fixed h-screen transition-all 
-                    duration-50 z-10
-                    ${isOpen ? "w-64" : "w-0 overflow-hidden"}`}
+                    duration-50 z-10 shadow-md
+                    ${isOpen ? "w-64 shadow-md" : "w-0 overflow-hidden"}`}
       >
+        {isOpen && (
+          <div
+            className="absolute top-0 right-[-20px] h-full w-2 
+                       bg-gradient-to-r from-transparent to-black 
+                       blur-md pointer-events-none"
+          ></div>
+        )}
         <div className="flex flex-col items-center">
           <div className="mt-4">
             <button
