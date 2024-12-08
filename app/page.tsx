@@ -4,7 +4,8 @@ import CustomCarousel from "@/components/customcarousel/customcarousel"
 export default function App() {
 
 	const images = [
-    "/logos/TLU-uldlogo.png",
+		"/logos/TLU-uldlogo.png",
+		"admissions.jpg"
 	]
 	
 	return (

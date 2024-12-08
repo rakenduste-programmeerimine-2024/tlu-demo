@@ -25,7 +25,7 @@ const DtiSidebar: React.FC = () => {
       <div
         className={`bg-gradient-to-b from-dtigreen via-gradientdtigreen to-dtigreen text-white 
                     fixed h-screen transition-all 
-                    duration-100 z-20
+                    duration-50 z-20
                     right-0
                     ${isOpen ? "w-64" : "w-0 overflow-hidden"}`}
       >

@@ -19,7 +19,7 @@ const Sidebar: React.FC = () => {
       <div
         className={`bg-gradient-to-b from-gradienttlured via-tlured to-gradienttlured text-white 
                     fixed h-screen transition-all 
-                    duration-100 z-10
+                    duration-50 z-10
                     ${isOpen ? "w-64" : "w-0 overflow-hidden"}`}
       >
         <div className="flex flex-col items-center">

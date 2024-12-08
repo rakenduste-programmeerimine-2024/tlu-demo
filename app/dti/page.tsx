@@ -4,7 +4,7 @@ import CustomCarousel from "@/components/customcarousel/customcarousel"
 export default function App() {
   const images = [
     "/logos/Digitehnoloogiate instituut-logo-eng.png",
-    "/logos/IMG_2977.JPG",
+    "IMG_2977.JPG",
   ]
 
   return (

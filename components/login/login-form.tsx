@@ -66,13 +66,15 @@ export default function LoginButton() {
 		setIsLoginOpen(false);
  };
 	return (
-    <div className="relative flex items-center justify-center">
+    <div
+      className="relative flex items-center justify-center"
+      onClick={() => setIsLoginOpen(!isLoginOpen)}
+    >
       <Image
         src="/icons/user.png"
         alt="User"
         width={20}
         height={20}
-        onClick={() => setIsLoginOpen(!isLoginOpen)}
         className="cursor-pointer"
       />
       {/* Login Form */}
