@@ -25,7 +25,7 @@ const App: React.FC = () => {
         <h2 id="accordion-collapse-heading-1">
           <button
             type="button"
-            className="flex items-center justify-between w-full p-5 font-medium rtl:text-right text-gray-500 border border-b-0 border-green-200 rounded-t-xl focus:ring-4 focus:ring-green-200 dark:focus:ring-green-800 dark:border-green-700 dark:text-gray-400 hover:bg-green-100 dark:hover:bg-green-800 gap-3"
+            className="flex items-center justify-between w-full p-5 font-medium rtl:text-right text-gray-500 border border-b-0 border-dtigreen rounded-t-xl focus:ring-4 focus:ring-dtigreen dark:focus:ring-dtigreen dark:border-dtigreen dark:text-gray-400 hover:bg-dtigreen dark:hover:bg-dtigreen gap-3"
             onClick={() => handleToggle(1)}
             aria-expanded={activeIndex === 1 ? "true" : "false"}
             aria-controls="accordion-collapse-body-1"
@@ -44,7 +44,7 @@ const App: React.FC = () => {
           className={`overflow-hidden transition-all duration-500 ease-in-out ${activeIndex === 1 ? "max-h-[1000px]" : "max-h-0"}`}
           aria-labelledby="accordion-collapse-heading-1"
         >
-          <div className="p-5 border border-b-0 border-green-200 dark:border-green-700 dark:bg-green-900">
+          <div className="p-5 border border-b-0 border-dtigreen dark:border-dtigreen dark:bg-dtigreen">
             <p className="mb-2 text-gray-500 dark:text-gray-400">
             Eesti raamatukoguhoidjate erialakoolitusega hakati regulaarselt tegelema 20. sajandi alguskümnenditel, eeskujuks oli saksa ning anglo-ameerika koolitussüsteem. 1927. aastast oli raamatukogundust võimalik õppida valikainena Tartu Ülikoolis. Tartus koolitati raamatukogutöötajaid mõningate vaheaegadega kuni 1965. aastani. Sellest alates on raamatukoguhoidja ja infospetsialisti koolitus toimunud Tallinna Ülikoolis (tollase nimetusega E. Vilde nim. Tallinna Pedagoogiline Instituut), kultuuriteaduskonna raamatukogunduse ja bibliograafia kateedris. Kateeder reorganiseeriti 1991. aastal raamatukogunduse osakonnaks. 1992/1993 õppeaasta kevadel moodustati osakonnas vastavalt ülikoolis kehtestatud uuele struktuurile õppetoolid ja valiti esimesed professorid: infoteaduse alal Evi Rannap, raamatukogunduse alal Marje Aasmets ja raamatuteaduse alal Mare Lott. Aastatel 1993-2007 tegutses osakond sotsiaalteaduskonna koosseisus, 1994. aastast infoteaduste osakonna nime all. Aasta hiljem alustas osakonna koosseisus tööd infotöö keskus kolme programmiga: kaugkoolituse, täiendkoolituse ning teadus- ja arendusprogrammiga, millest kasvas välja info- ja teadmusjuhtimise keskuslektor Sirje Virkuse juhtimisel.
             </p>
@@ -54,7 +54,7 @@ const App: React.FC = () => {
         <h2 id="accordion-collapse-heading-2">
           <button
             type="button"
-            className="flex items-center justify-between w-full p-5 font-medium rtl:text-right text-gray-500 border border-b-0 border-green-200 focus:ring-4 focus:ring-green-200 dark:focus:ring-green-800 dark:border-green-700 dark:text-gray-400 hover:bg-green-100 dark:hover:bg-green-800 gap-3"
+            className="flex items-center justify-between w-full p-5 font-medium rtl:text-right text-gray-500 border border-b-0 border-dtigreen focus:ring-4 focus:ring-dtigreen dark:focus:ring-dtigreen dark:border-dtigreen dark:text-gray-400 hover:bg-dtigreen dark:hover:bg-dtigreen gap-3"
             onClick={() => handleToggle(2)}
             aria-expanded={activeIndex === 2 ? "true" : "false"}
             aria-controls="accordion-collapse-body-2"
@@ -73,7 +73,7 @@ const App: React.FC = () => {
           className={`overflow-hidden transition-all duration-500 ease-in-out ${activeIndex === 2 ? "max-h-[1000px]" : "max-h-0"}`}
           aria-labelledby="accordion-collapse-heading-2"
         >
-          <div className="p-5 border border-b-0 border-green-200 dark:border-green-700">
+          <div className="p-5 border border-b-0 border-dtigreen dark:border-dtigreen">
             <p className="mb-2 text-gray-500 dark:text-gray-400">
             Arvutiõpetuse ajalugu Tallinna Ülikoolis ulatub aastasse 1965 kui tollases E.Vilde nimelises Tallinna Pedagoogilises Instituudis taasavatud matemaatika eriala õppekavasse lülitati kursus arvutid ja programmeerimine. Väikeste muudatustega 1978. a ja 1983. a kehtis see õppekava kuni 1986. aastani, mil mindi üle uutele õppekavadele, mille lõpetaja sai keskkooli matemaatika ja informaatika ning põhikooli füüsika õpetaja kutse. Seoses sellega vähendati füüsika ja astronoomia tunde ning informaatika ja arvutusmatemaatika tundide arv kasvas 384 tunnile. Informaatikat ja arvutiõpetust õpetati matemaatika kateedri koosseisus (dots Peeter Normak, õpet Vambola Kase).            </p>
           </div>
@@ -82,7 +82,7 @@ const App: React.FC = () => {
         <h2 id="accordion-collapse-heading-3">
           <button
             type="button"
-            className="flex items-center justify-between w-full p-5 font-medium rtl:text-right text-gray-500 border border-b-0 border-green-200 focus:ring-4 focus:ring-green-200 dark:focus:ring-green-800 dark:border-green-700 dark:text-gray-400 hover:bg-green-100 dark:hover:bg-green-800 gap-3"
+            className="flex items-center justify-between w-full p-5 font-medium rtl:text-right text-gray-500 border border-b-0 border-dtigreen focus:ring-4 focus:ring-dtigreen dark:focus:ring-dtigreen dark:border-dtigreen dark:text-gray-400 hover:bg-dtigreen dark:hover:bg-dtigreen gap-3"
             onClick={() => handleToggle(3)}
             aria-expanded={activeIndex === 3 ? "true" : "false"}
             aria-controls="accordion-collapse-body-3"
@@ -102,12 +102,13 @@ const App: React.FC = () => {
           className={`overflow-hidden transition-all duration-500 ease-in-out ${activeIndex === 3 ? "max-h-[1000px]" : "max-h-0"}`}
           aria-labelledby="accordion-collapse-heading-3"
         >
-          <div className="p-5 border border-t-0 border-green-200 dark:border-green-700">
+          <div className="p-5 border border-b-0 border-dtigreen dark:border-dtigreen">
             <p className="mb-2 text-gray-500 dark:text-gray-400">
             Matemaatika on olnud esindatud Tallinna Ülikoolis selle kõigil arenguetappidel. Tallinna Ülikooli vanim eelkäija oli Tallinna Õpetajate Seminar, mis asutati 1. juulil 1919 ja õppetöö algas 18. oktoobril, mida enne 2006. aastat tähistati ülikooli aastapäevana. Seminari esimene direktor oli matemaatik Villem Nano (1893-1965, mh praeguse Digitehnoloogiate instituudidirektori Peeter Normaku (s 1952) vanaisa). Seminar nimetati sügisel 1929 ümber Tallinna Pedagoogiumiks, kuid endine nimi taastati 1937 ja selle nime all töötati kuni 1947. aastani. Sel perioodil olid seal Nano kõrval tuntud matemaatikaõpetajad ja kooliõpikute autorid Viktor Päss (1892-1956), August Perli (1871-1935), Arnold Vihman (1899-1975), Elmar Etverk (1899-1977) jt. Inspektorina töötas seal mehaanik Oskar Silde (1900-1996).            </p>
           </div>
         </div>
       </div>
+      <br></br>
     </div>
   );
 };
