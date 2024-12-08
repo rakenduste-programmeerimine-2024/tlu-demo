@@ -1,19 +1,28 @@
 .carousel {
   position: relative;
-  width: 100%;
-  max-width: 600px;
-  margin: auto;
-  overflow: hidden;
+  width: 600px; /* Lock the width */
+  height: 400px; /* Lock the height */
+  overflow: hidden; /* Hide anything outside the container */
+  margin: auto; /* Center the carousel */
+  background-color: #f3f4f6; /* Background for empty space (optional) */
+  display: flex; /* Center images horizontally and vertically */
+  align-items: center;
+  justify-content: center;
 }
 
 .carouselImages {
   display: flex;
   transition: transform 0.5s ease-in-out;
+  width: 100%; /* Match the carousel width */
+  height: 100%; /* Match the carousel height */
 }
 
 .image {
-  min-width: 100%;
-  height: auto;
+  max-width: 100%; /* Image won't exceed the container width */
+  max-height: 100%; /* Image won't exceed the container height */
+  width: auto; /* Preserve the image's intrinsic aspect ratio */
+  height: auto; /* Preserve the image's intrinsic aspect ratio */
+  object-fit: contain; /* Adjust to fill the container without stretching */
 }
 
 .arrowLeft,
