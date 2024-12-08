@@ -15,7 +15,6 @@ const DtiSidebar: React.FC = () => {
     setIsOpen(isAllowedPage)
   }, [isAllowedPage])
 
-  // Don't render the sidebar at all if not on an allowed page
   if (!isAllowedPage) {
     return null
   }
@@ -26,9 +25,16 @@ const DtiSidebar: React.FC = () => {
         className={`bg-gradient-to-b from-dtigreen via-gradientdtigreen to-dtigreen text-white 
                     fixed h-screen transition-all 
                     duration-50 z-20
-                    right-0
-                    ${isOpen ? "w-64" : "w-0 overflow-hidden"}`}
+                    right-0 shadow-md
+                    ${isOpen ? " shadow-md w-64" : "w-0 overflow-hidden"}`}
       >
+        {isOpen && (
+          <div
+            className="absolute top-0 left-[-20px] h-full w-2 
+                       bg-gradient-to-r from-transparent to-black 
+                       blur-md pointer-events-none"
+          ></div>
+        )}
         <div className="flex flex-col items-center">
           <div className="mt-4">
             <button
