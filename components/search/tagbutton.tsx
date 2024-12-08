@@ -22,7 +22,7 @@ export default function TagButton({
             text-center
             text-sm
             whitespace-nowrap 
-        ${isSelected ? "bg-tlured text-white" : "border-red-500 hover:bg-red-400"}
+        ${isSelected ? "bg-tlured text-white shadow-lg transform scale-95" : "border-red-500 hover:bg-tlured hover:text-white"}
       `}
       >
         {label}

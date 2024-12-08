@@ -40,35 +40,30 @@ values
 
 INSERT INTO public.pages (title, content, author, institute, deleted)
 VALUES
--- Page for an institute overview
 ('Tallinna Ülikooli Ülevaade', 
 'Tallinna Ülikool on üks Eesti juhtivaid ülikoole, pakkudes laia valikut bakalaureuse-, magistri- ja doktoriõppe programme.', 
 '550e8400-e29b-41d4-a716-446655440000', -- Joonas Tamm's UUID
 1, -- 'Tallinna Ülikool' (ID = 1) as the institute
 false),
 
--- Page for an event announcement
 ('Seminar: Teaduse ja tehnoloogia ristteed', 
  'Liituge meie seminariga, kus arutleme, kuidas teadus ja tehnoloogia muudavad meie igapäevaelu.', 
  '550e8400-e29b-41d4-a716-446655440001', -- Rudolf Põder's UUID
  3, -- 'Digitehnoloogiate instituut' (ID = 3) as the institute
  false),
 
--- Page for course information
 ('Õppeaine: Multimeedia tehnoloogiad', 
  'Selles õppeaines uurime, kuidas luua kaasaegseid multimeediarakendusi, sealhulgas filme ja interaktiivseid platvorme.', 
  '550e8400-e29b-41d4-a716-446655440002', -- Mihkel Välgu's UUID
  2, -- 'Balti filmi, meedia ja kunstide instituut' (ID = 2) as the institute
  false),
 
--- Page for an event report
 ('Teadussündmus: Rohepöörde võimalused', 
  'Arutelu keskmes oli, kuidas Eesti ülikoolid saavad panustada jätkusuutlikkuse edendamisse.', 
  '550e8400-e29b-41d4-a716-446655440003', -- Inimene Eitea's UUID
  6, -- 'Loodus- ja terviseteaduste instituut' (ID = 6) as the institute
  false),
 
--- Archived page
 ('Ajalooline vaade: Tallinna Ülikooli areng', 
  'Ülevaade Tallinna Ülikooli ajaloost ja olulisematest verstapostidest.', 
  '550e8400-e29b-41d4-a716-446655440000', -- Joonas Tamm's UUID
