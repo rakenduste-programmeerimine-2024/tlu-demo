@@ -3,7 +3,8 @@ import { ThemeProvider } from "next-themes"
 import "./globals.css"
 import FrontHeader from "@/components/front-header"
 import Sidebar from "@/components/sidebar"
-import { ThemeSwitcher } from "@/components/theme-switcher"
+import DtiSidebar from "@/components/dti-sidebar"
+import Footer from "@/components/footer"
 
 const defaultUrl = process.env.VERCEL_URL
   ? `https://${process.env.VERCEL_URL}`
@@ -41,18 +42,19 @@ export default function RootLayout({
               <FrontHeader />
             </div>
             <div className="absolute right-0 top-0">
-              <ThemeSwitcher />
+              <DtiSidebar />
             </div>
           </div>
           <main className="flex flex-col items-center">
             <div className="flex-1 w-full flex flex-col gap-20 items-center">
-              <nav className="w-full flex justify-center h-16"></nav>
+              <nav className="w-full flex justify-center h-8"></nav>
               <div className="flex flex-col gap-20 max-w-5xl p-5">
                 {children}
               </div>
             </div>
           </main>
         </ThemeProvider>
+        <Footer />
       </body>
     </html>
   )

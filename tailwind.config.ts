@@ -53,9 +53,12 @@ const config = {
           foreground: "hsl(var(--card-foreground))",
         },
         tlured: "#d0043c",
+        gradienttlured: "#69041f",
         logored: "#b20e10",
         black: "#000000",
         white: "#ffffff",
+        dtigreen: "#6bcaba",
+        gradientdtigreen: "#7dcdc0"
       },
       borderRadius: {
         lg: "var(--radius)",
@@ -78,7 +81,9 @@ const config = {
       },
     },
   },
-  plugins: [require("tailwindcss-animate")],
+  plugins: [
+    require("tailwindcss-animate"),
+  ],
 } satisfies Config;
 
 export default config;

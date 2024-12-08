@@ -124,7 +124,7 @@ export default function Signup(props: { searchParams: Promise<Message> }) {
               />
               <div className="tooltip relative inline-block ml-2">
                 <Image
-                  src="/info-icon.png" // Image path directly from public folder
+                  src="/icons/info-icon.png" // Image path directly from public folder
                   alt="Password Info"
                   width={20}
                   height={20}

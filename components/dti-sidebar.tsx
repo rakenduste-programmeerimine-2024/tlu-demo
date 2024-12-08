@@ -1,31 +1,38 @@
 "use client"
 import React, { useState, useEffect } from "react"
 import { usePathname, useRouter } from "next/navigation"
-import { ThemeSwitcher } from "./theme-switcher"
-import LoginButton from "./login/login-form"
 
-const Sidebar: React.FC = () => {
+const DtiSidebar: React.FC = () => {
   const router = useRouter()
   const pathname = usePathname()
-	const isMainPage = pathname === "/"
-  const [isOpen, setIsOpen] = useState<boolean>(isMainPage)
+
+  const allowedPages = ["/dti", "/dtiAboutUs", "/dtiAdmissions"]
+  const isAllowedPage = allowedPages.includes(pathname)
+
+  const [isOpen, setIsOpen] = useState<boolean>(isAllowedPage)
 
   useEffect(() => {
-    setIsOpen(isMainPage)
-  }, [isMainPage])
+    setIsOpen(isAllowedPage)
+  }, [isAllowedPage])
+
+  // Don't render the sidebar at all if not on an allowed page
+  if (!isAllowedPage) {
+    return null
+  }
 
   return (
     <div className="flex">
       <div
-        className={`bg-gradient-to-b from-gradienttlured via-tlured to-gradienttlured text-white 
+        className={`bg-gradient-to-b from-dtigreen via-gradientdtigreen to-dtigreen text-white 
                     fixed h-screen transition-all 
-                    duration-50 z-10
+                    duration-50 z-20
+                    right-0
                     ${isOpen ? "w-64" : "w-0 overflow-hidden"}`}
       >
         <div className="flex flex-col items-center">
           <div className="mt-4">
             <button
-              onClick={() => router.push("/")}
+              onClick={() => router.push("/dti")}
               className="text-white hover:text-gray-300"
             >
               Home
@@ -33,7 +40,7 @@ const Sidebar: React.FC = () => {
           </div>
           <div className="mt-4">
             <button
-              onClick={() => router.push("/aboutUs")}
+              onClick={() => router.push("/dtiAboutUs")}
               className="text-white 
                           hover:text-gray-300"
             >
@@ -42,20 +49,10 @@ const Sidebar: React.FC = () => {
           </div>
           <div className="mt-4">
             <button
-              onClick={() => router.push("/admissions")}
-              className="text-white 
-                          hover:text-gray-300"
+              onClick={() => router.push("/dtiAdmissions")}
+              className="text-white hover:text-gray-300"
             >
               Sisseastumine
-            </button>
-          </div>
-          <div className="mt-4">
-            <button
-              onClick={() => router.push("/dti")}
-              className="text-white 
-                          hover:text-gray-300"
-            >
-              DTI
             </button>
           </div>
         </div>
@@ -63,12 +60,13 @@ const Sidebar: React.FC = () => {
 
       <div
         className={`flex-1 p-4 
-                        ${isOpen ? "ml-72" : "ml-0"}`}
+                        ${isOpen ? "ml-64" : "ml-0"}`}
       >
-        <div className="ml-auto">
+        <div className="mr-auto">
           <button
-            className="bg-black hover:bg-logored dark:bg-logored dark:hover:bg-black
-                       text-white font-bold py-2 px-4 rounded min-w-[72px] flex items-center justify-center"
+            className={`fixed top-4 
+                      bg-black hover:bg-logored dark:bg-dtigreen dark:hover:bg-black
+                      text-white font-bold py-2 px-4 rounded right-0 min-w-[72px] flex items-center justify-center ${isOpen ? "mr-4 right-72" : "right-4"}`}
             onClick={() => setIsOpen(!isOpen)}
           >
             {isOpen ? (
@@ -106,28 +104,13 @@ const Sidebar: React.FC = () => {
         </div>
         <div>
           <button
-            onClick={() => router.push("/test/search")}
-            className="bg-black hover:bg-logored dark:bg-logored dark:hover:bg-black
-                       text-white font-bold py-2 px-4 rounded mt-2 min-w-[72px]"
-          >
-            OTSI
-          </button>
-        </div>
-        <div
-          className="bg-black hover:bg-logored dark:bg-logored dark:hover:bg-black
-                       text-white font-bold py-2 px-4 rounded mt-2 min-w-[72px]"
-        >
-          <ThemeSwitcher />
-        </div>
-        <div
-          className="bg-black hover:bg-logored dark:bg-logored dark:hover:bg-black
-                       text-white font-bold py-2 px-4 rounded mt-2 min-w-[72px]"
-        >
-          <LoginButton />
+            className="bg-black hover:bg-logored dark:bg-gradient-to-b dark:from-gradienttlured dark:from-1% dark:to-tlured dark:hover:bg-tlured
+                       text-white font-bold py-2 px-4 rounded"
+          ></button>
         </div>
       </div>
     </div>
   )
 }
 
-export default Sidebar
+export default DtiSidebar
