@@ -49,8 +49,8 @@ const Admissions: React.FC = () => {
             key={index}
           >
             <div className="p-4">
-              <h3 className="text-2xl text-green-700 font-semibold mb-2">{program.title}</h3>
-              <p className="text-gray-700">{program.description}</p>
+              <h3 className="text-2xl text-dtigreen font-semibold mb-2">{program.title}</h3>
+              <p className="text-gray-700 dark:text-gray-100 ">{program.description}</p>
               <a href="#" className="boreder text-green-500 ">{program.link}</a>
             </div>
           </div>
