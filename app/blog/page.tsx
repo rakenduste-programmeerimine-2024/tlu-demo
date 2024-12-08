@@ -6,7 +6,7 @@ import Link from 'next/link';
 
 export default function BlogIndex() {
   const [posts, setPosts] = useState<any[]>([]);
-
+  
   useEffect(() => {
     const fetchPosts = async () => {
       const supabase = createClient(); // Instantiate the client dynamically

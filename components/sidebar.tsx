@@ -121,7 +121,7 @@ const Sidebar: React.FC = () => {
         </div>
         <div>
           <button
-            onClick={() => router.push("/test/search")}
+            onClick={() => router.push("/search")}
             className="bg-black hover:bg-logored dark:bg-logored dark:hover:bg-black
                        text-white font-bold py-2 px-4 rounded mt-2 min-w-[72px]"
           >
