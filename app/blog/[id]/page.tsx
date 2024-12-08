@@ -23,7 +23,8 @@ const fetchPost = async (id: number): Promise<Post | null> => {
   return data
 }
 
-export async function generateMetadata({ params }: { params: { id: string } }) {
+export async function generateMetadata(props: { params: Promise<{ id: string }> }) {
+  const params = await props.params;
   const post = await fetchPost(Number(params.id))
 
   return {
@@ -32,7 +33,8 @@ export async function generateMetadata({ params }: { params: { id: string } }) {
   }
 }
 
-export default async function BlogPost({ params }: { params: { id: string } }) {
+export default async function BlogPost(props: { params: Promise<{ id: string }> }) {
+  const params = await props.params;
   const post = await fetchPost(Number(params.id))
 
   if (!post) {
