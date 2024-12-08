@@ -13,11 +13,12 @@ interface TextInputProps {
 export default function SearchBarNoFill({ value, onChange }: TextInputProps) {
   return (
     <>
-      <div className="relative">
+      <div className="relative w-full">
         <input
           type="search"
           placeholder="Otsi lehelt"
-          className="w-full p-4 rounded-full bg-slate-100 dark:bg-slate-800"
+          /*className="w-full p-4 rounded-full bg-slate-100 dark:bg-slate-800"*/
+          className="w-full p-3 rounded-full bg-slate-100 dark:bg-slate-800 h-14"
           value={value}
           onChange={e => onChange(e.target.value)}
         ></input>
