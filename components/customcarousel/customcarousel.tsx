@@ -1,7 +1,6 @@
 "use client"
 
 import React, { useState } from "react"
-import styles from "./Carousel.module.css"
 
 interface CarouselProps {
   images: string[]
@@ -27,10 +26,9 @@ const Carousel: React.FC<CarouselProps> = ({ images }) => {
   }
 
   return (
-    <div className={styles.carousel}>
-      {/* Image Wrapper */}
+    <div className="relative w-full max-w-[600px] mx-auto overflow-hidden">
       <div
-        className={styles.carouselImages}
+        className="flex transition-transform duration-500 ease-in-out"
         style={{
           transform: `translateX(-${currentIndex * 100}%)`,
         }}
@@ -40,22 +38,21 @@ const Carousel: React.FC<CarouselProps> = ({ images }) => {
             key={index}
             src={image}
             alt={`Slide ${index}`}
-            className={styles.image}
+            className="min-w-full h-auto object-contain"
           />
         ))}
       </div>
 
-      {/* Arrows */}
       {images.length > 1 && (
         <>
           <button
-            className={styles.arrowLeft}
+            className="absolute top-1/2 left-0 transform -translate-y-1/2 bg-black bg-opacity-50 text-white border-none rounded-full w-10 h-10 flex items-center justify-center cursor-pointer z-10 hover:bg-opacity-70"
             onClick={handlePrev}
           >
             &#8592;
           </button>
           <button
-            className={styles.arrowRight}
+            className="absolute top-1/2 right-0 transform -translate-y-1/2 bg-black bg-opacity-50 text-white border-none rounded-full w-10 h-10 flex items-center justify-center cursor-pointer z-10 hover:bg-opacity-70"
             onClick={handleNext}
           >
             &#8594;
@@ -63,17 +60,13 @@ const Carousel: React.FC<CarouselProps> = ({ images }) => {
         </>
       )}
 
-      {/* Dots */}
       {images.length > 1 && (
-        <div className={styles.dots}>
+        <div className="flex justify-center gap-2 mt-2 relative">
           {images.map((_, index) => (
             <button
               key={index}
-              className={`w-3 h-3 rounded-full border border-gray-300 dark:border-white cursor-pointer transition-all duration-300 
-            ${index === currentIndex
-                  ? "bg-black dark:black"
-                  : "bg-gray-300 dark:bg-white"
-                }`}
+              className={`w-2.5 h-2.5 rounded-full cursor-pointer transition-all duration-300 
+                ${index === currentIndex ? "bg-black" : "bg-gray-300"}`}
               onClick={() => handleDotClick(index)}
             />
           ))}
