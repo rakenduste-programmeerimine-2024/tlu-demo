@@ -10,7 +10,7 @@ import Pagination from "@/components/search/pagination"
 
 const tags: string[] = ["Kõik", "Sisulehed", "Üritused", "Isikud"]
 
-export default function SearchTest() {
+export default function Search() {
   const searchParams = useSearchParams()
   const pathname = usePathname()
   const { replace } = useRouter()
@@ -24,8 +24,6 @@ export default function SearchTest() {
   )
   const [page, setPage] = useState(parseInt(searchParams.get("page") || "1"))
 
-  const [searchResults, setSearchResults] = useState([])
-
   const [pagesData, setPagesData] = useState([])
   const [eventsData, setEventsData] = useState([])
   const [contactsData, setContactsData] = useState([])
@@ -37,11 +35,19 @@ export default function SearchTest() {
     contacts: 0,
   })
 
+  const [loading, setLoading] = useState(false)
+
   async function fetchData() {
     if (!submittedQuery) {
       console.log("No query found")
+      setPagesData([])
+      setEventsData([])
+      setContactsData([])
+      setCountData({ pages: 0, events: 0, contacts: 0 })
       return
     }
+
+    setLoading(true)
 
     try {
       const response = await fetch("/api/search", {
@@ -82,6 +88,8 @@ export default function SearchTest() {
       setEventsData([])
       setContactsData([])
       setCountData({ pages: 0, events: 0, contacts: 0 })
+    } finally {
+      setLoading(false)
     }
   }
 
@@ -175,19 +183,24 @@ export default function SearchTest() {
           </div>*/}
         </form>
 
-        <ResultList
-          results={{
-            pages: pagesData,
-            events: eventsData,
-            contacts: contactsData,
-          }}
-        />
+        {/* Display loading message while fetching */}
+        {loading ? (
+          <p>Tulemuste laadimine, palun oodake...</p>
+        ) : (
+          <ResultList
+            results={{
+              pages: pagesData,
+              events: eventsData,
+              contacts: contactsData,
+            }}
+          />
+        )}
 
         <Pagination
           currentPage={page}
           totalPages={Math.ceil(
             (countData.pages + countData.events + countData.contacts) / 10,
-          )} // Math.ceil((countData.pages + countData.events + countData.contacts) / 10)
+          )}
           onPageChange={handlePageChange}
         />
       </main>
