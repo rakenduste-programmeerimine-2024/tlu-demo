@@ -65,6 +65,14 @@ const Sidebar: React.FC = () => {
               DTI
             </button>
           </div>
+          <div className="mt-4">
+            <button
+              onClick={() => router.push("/blog")}
+              className="text-white hover:text-gray-300"
+            >
+              Blog
+            </button>
+          </div>
         </div>
       </div>
 

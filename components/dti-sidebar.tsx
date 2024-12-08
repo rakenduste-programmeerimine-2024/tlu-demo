@@ -15,7 +15,6 @@ const DtiSidebar: React.FC = () => {
     setIsOpen(isAllowedPage)
   }, [isAllowedPage])
 
-  // Don't render the sidebar at all if not on an allowed page
   if (!isAllowedPage) {
     return null
   }

@@ -25,7 +25,7 @@ export const getServerSideProps: GetServerSideProps<{ post: Post }> = async ({ p
   const { data, error } = await supabase
     .from('posts')
     .select('*')
-    .eq('id', Number(params.id)) // Convert to number if `id` is an INTEGER in DB
+    .eq('id', Number(params.id))
     .single();
 
   console.log('Supabase response:', { data, error });
