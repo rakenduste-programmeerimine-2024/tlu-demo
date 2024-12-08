@@ -4,7 +4,7 @@ create table
     created_at timestamp with time zone not null default now(),
     title text not null,
     content text null,
-    author bigint not null,
+    author uuid not null,
     institute bigint not null,
     deleted boolean not null default false,
     constraint pages_pkey primary key (id),

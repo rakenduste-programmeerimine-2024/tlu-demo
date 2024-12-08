@@ -13,7 +13,7 @@ export default async function Login(props: { searchParams: Promise<Message> }) {
       <p className="text-sm text-foreground">
         Ei ole veel kasutajat?{" "}
         <Link className="text-foreground font-medium underline" href="/sign-up">
-          Logi sisse
+          Loo konto
         </Link>
       </p>
       <div className="flex flex-col gap-2 [&>input]:mb-3 mt-8">
