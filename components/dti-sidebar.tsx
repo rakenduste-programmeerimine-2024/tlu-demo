@@ -5,19 +5,27 @@ import { usePathname, useRouter } from "next/navigation"
 const DtiSidebar: React.FC = () => {
   const router = useRouter()
   const pathname = usePathname()
-  const isDTIPage = pathname === "/dti"
-  const [isOpen, setIsOpen] = useState<boolean>(isDTIPage)
+
+  const allowedPages = ["/dti", "/dtiAboutUs", "/dtiAdmissions"]
+  const isAllowedPage = allowedPages.includes(pathname)
+
+  const [isOpen, setIsOpen] = useState<boolean>(isAllowedPage)
 
   useEffect(() => {
-    setIsOpen(isDTIPage)
-  }, [isDTIPage])
+    setIsOpen(isAllowedPage)
+  }, [isAllowedPage])
+
+  // Don't render the sidebar at all if not on an allowed page
+  if (!isAllowedPage) {
+    return null
+  }
 
   return (
     <div className="flex">
       <div
-        className={`bg-gradient-to-b from-gradienttlured via-tlured to-gradienttlured text-white 
+        className={`bg-gradient-to-b from-dtigreen via-gradientdtigreen to-dtigreen text-white 
                     fixed h-screen transition-all 
-                    duration-100 z-20
+                    duration-50 z-20
                     right-0
                     ${isOpen ? "w-64" : "w-0 overflow-hidden"}`}
       >
@@ -54,11 +62,11 @@ const DtiSidebar: React.FC = () => {
         className={`flex-1 p-4 
                         ${isOpen ? "ml-64" : "ml-0"}`}
       >
-        <div className="ml-auto">
+        <div className="mr-auto">
           <button
             className={`fixed top-4 
-                      bg-black hover:bg-logored dark:bg-gradient-to-b dark:from-gradienttlured dark:from-1% dark:to-tlured dark:hover:bg-tlured
-                      text-white font-bold py-2 px-4 rounded right-0 ${isOpen ? "right-72" : "right-4"}`}
+                      bg-black hover:bg-logored dark:bg-dtigreen dark:hover:bg-black
+                      text-white font-bold py-2 px-4 rounded right-0 min-w-[72px] flex items-center justify-center ${isOpen ? "mr-4 right-72" : "right-4"}`}
             onClick={() => setIsOpen(!isOpen)}
           >
             {isOpen ? (

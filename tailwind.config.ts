@@ -57,6 +57,8 @@ const config = {
         logored: "#b20e10",
         black: "#000000",
         white: "#ffffff",
+        dtigreen: "#6bcaba",
+        gradientdtigreen: "#7dcdc0"
       },
       borderRadius: {
         lg: "var(--radius)",
@@ -81,7 +83,6 @@ const config = {
   },
   plugins: [
     require("tailwindcss-animate"),
-    require("daisyui")
   ],
 } satisfies Config;
 

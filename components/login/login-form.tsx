@@ -66,14 +66,26 @@ export default function LoginButton() {
 		setIsLoginOpen(false);
  };
 	return (
-		<div className="w-full flex flex-col items-center justify-center relative">
-			<Image src="/icons/user.png" alt="User" width={20} height={20} onClick={() => setIsLoginOpen(!isLoginOpen)} />
-			{/* Login Form */}
-			{isLoginOpen && (
-				<div className="absolute right-0 mt-2 bg-white shadow-md rounded-md w-64 p-4 z-10">
-					<LoginForm message={{ message: "" }} onClose={handleClose} />
-				</div>
-			)}
-		</div>
-	);
+    <div
+      className="relative flex items-center justify-center"
+      onClick={() => setIsLoginOpen(!isLoginOpen)}
+    >
+      <Image
+        src="/icons/user.png"
+        alt="User"
+        width={20}
+        height={20}
+        className="cursor-pointer"
+      />
+      {/* Login Form */}
+      {isLoginOpen && (
+        <div className="absolute left-16 top-0 mt-2 bg-white shadow-md rounded-md w-64 p-4 z-10">
+          <LoginForm
+            message={{ message: "" }}
+            onClose={handleClose}
+          />
+        </div>
+      )}
+    </div>
+  )
 }
