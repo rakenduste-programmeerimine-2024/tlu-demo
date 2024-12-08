@@ -8,7 +8,9 @@ import React, { FC, useEffect, useState } from "react"
 import ResultList from "@/components/search/result-list"
 import Pagination from "@/components/search/pagination"
 
-const tags: string[] = ["Kõik", "Sisulehed", "Üritused", "Isikud"]
+/*const tags: string[] = ["Kõik", "Sisulehed", "Üritused", "Isikud"]*/
+
+const tags: string[] = ["Sisulehed", "Üritused", "Isikud"]
 
 export default function Search() {
   const searchParams = useSearchParams()
@@ -20,7 +22,7 @@ export default function Search() {
     searchParams.get("query") || "",
   )
   const [selectedTag, setSelectedTag] = useState(
-    searchParams.get("tag") || "Kõik",
+    searchParams.get("tag") || "Sisulehed",
   )
   const [page, setPage] = useState(parseInt(searchParams.get("page") || "1"))
 
@@ -36,6 +38,8 @@ export default function Search() {
   })
 
   const [loading, setLoading] = useState(false)
+
+  const [firstTime, setFirsttime] = useState(0)
 
   async function fetchData() {
     if (!submittedQuery) {
@@ -141,6 +145,7 @@ export default function Search() {
     }
     setSubmittedQuery(query.trim())
     setPage(1)
+    setFirsttime(1)
     updateSearchParams({ query: query.trim(), tag: selectedTag, page: "1" })
   }
 
@@ -150,59 +155,64 @@ export default function Search() {
 
   return (
     <>
-      <main className="flex-1 flex flex-col gap-6 px-4 items-center">
-        <form
-          className="w-full max-w-[500px] flex-1 flex flex-col gap-6 px-4 relative"
-          onSubmit={handleSubmit}
-        >
-          <div className="flex items-center gap-4 w-full">
-            <SearchBarNoFill
-              value={query}
-              onChange={handleSearchChange}
+      <main>
+        <div className="flex-1 flex flex-col gap-6 px-4 items-center">
+          <form
+            className="w-full max-w-[500px] flex-1 flex flex-col gap-6 px-4 relative"
+            onSubmit={handleSubmit}
+          >
+            <div className="flex items-center gap-4 w-full">
+              <SearchBarNoFill
+                value={query}
+                onChange={handleSearchChange}
+              />
+
+              <button
+                type="submit"
+                className="relative flex items-center justify-center p-3 w-16 h-10 rounded-full bg-tlured border-2 border-tlured text-white text-lg shadow-md transform hover:scale-105 hover:shadow-lg transition-all duration-200 ease-in-out"
+              >
+                <AiOutlineSearch className="text-xl" />
+              </button>
+            </div>
+
+            <TagRow
+              buttons={tags}
+              selectedTag={selectedTag}
+              onTagChange={handleTagChange}
             />
 
-            <button
-              type="submit"
-              className="relative flex items-center justify-center p-3 w-16 h-10 rounded-full bg-tlured border-2 border-tlured text-white text-lg shadow-md transform hover:scale-105 hover:shadow-lg transition-all duration-200 ease-in-out"
-            >
-              <AiOutlineSearch className="text-xl" />
-            </button>
-          </div>
-
-          <TagRow
-            buttons={tags}
-            selectedTag={selectedTag}
-            onTagChange={handleTagChange}
-          />
-
-          {/*<div className="flex justify-center mt-4">
+            {/*<div className="flex justify-center mt-4">
             <button className="relative p-3 w-48 h-10 rounded-lg bg-slate-300 border-2 border-slate-700 flex items-center hover:bg-slate-500 transition-all duration-200 ease-in-out">
               <AiOutlineSearch className="text-xl text-gray-600 mr-3" />
               <span className="text-sm font-medium text-gray-700">Otsi</span>
             </button>
           </div>*/}
-        </form>
+          </form>
 
-        {/* Display loading message while fetching */}
-        {loading ? (
-          <p>Tulemuste laadimine, palun oodake...</p>
-        ) : (
-          <ResultList
-            results={{
-              pages: pagesData,
-              events: eventsData,
-              contacts: contactsData,
-            }}
+          {/* Display loading message while fetching */}
+          {loading ? (
+  <p>Tulemuste laadimine, palun oodake...</p>
+) : (
+  firstTime === 1 && (
+    <ResultList
+      results={{
+        pages: pagesData,
+        events: eventsData,
+        contacts: contactsData,
+      }}
+    />
+  )
+)}
+
+
+          <Pagination
+            currentPage={page}
+            totalPages={Math.ceil(
+              (countData.pages + countData.events + countData.contacts) / 10,
+            )}
+            onPageChange={handlePageChange}
           />
-        )}
-
-        <Pagination
-          currentPage={page}
-          totalPages={Math.ceil(
-            (countData.pages + countData.events + countData.contacts) / 10,
-          )}
-          onPageChange={handlePageChange}
-        />
+        </div>
       </main>
     </>
   )
