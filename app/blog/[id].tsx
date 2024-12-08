@@ -46,9 +46,9 @@ export default function BlogPost({ post }: BlogPostProps) {
     <div>
       <h1>{post.title}</h1>
       <p>{post.content}</p>
-      <small>Posted by User {post.users_id}</small>
+      <small>Autor {post.users_id}</small>
       <br />
-      <small>Created at: {new Date(post.created_at).toLocaleString()}</small>
+      <small>Loodud: {new Date(post.created_at).toLocaleString()}</small>
     </div>
   );
 }

@@ -23,7 +23,7 @@ export default function NewBlogPost() {
       if (session?.user) {
         setUser(session.user);
       } else {
-        setError("You must be logged in to create a post");
+        setError("Blogi postituse loomiseks pead sisse logima.");
       }
     };
 
@@ -34,7 +34,7 @@ export default function NewBlogPost() {
     e.preventDefault();
 
     if (!user) {
-      setError("You must be logged in to create a post");
+      setError("Blogi postituse loomiseks pead sisse logima.");
       return;
     }
 
@@ -56,18 +56,18 @@ export default function NewBlogPost() {
     }
   };
 
-  if (!user) return <p>Loading...</p>;
+  if (!user) return <p>Laeb... Kui leht laeb kauem kui 10 sekundit, siis kontrolli, kas oled sisse loginud.</p>;
 
   return (
     <div className="max-w-3xl mx-auto p-4">
       <h1 className="text-2xl font-bold mb-6 text-gray-900 dark:text-gray-100">
-        Create New Blog Post
+        Tee uus blogi postitus
       </h1>
       {error && <p className="text-red-500 mb-4">{error}</p>}
       <form onSubmit={handleCreatePost} className="space-y-6">
         <div>
           <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
-            Title
+            Pealkiri
           </label>
           <input
             type="text"
@@ -79,7 +79,7 @@ export default function NewBlogPost() {
         </div>
         <div>
           <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
-            Content
+            Postituse sisu
           </label>
           <textarea
             value={content}
@@ -89,7 +89,7 @@ export default function NewBlogPost() {
             rows={6}
           />
         </div>
-        <SubmitButton pendingText="Creating Post...">Create Post</SubmitButton>
+        <SubmitButton pendingText="Creating Post...">Loo postitus</SubmitButton>
       </form>
     </div>
   );
