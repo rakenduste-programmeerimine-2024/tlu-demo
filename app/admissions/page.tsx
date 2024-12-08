@@ -38,7 +38,7 @@ const Admissions: React.FC = () => {
           >
             <div className="p-4">
               <h3 className="text-2xl text-red-700 font-semibold mb-2">{program.title}</h3>
-              <p className="text-gray-700">{program.description}</p>
+              <p className="text-gray-700 dark:text-gray-100">{program.description}</p>
               <a href="#" className="boreder text-red-500 ">Vaata erialasid</a>
             </div>
           </div>
